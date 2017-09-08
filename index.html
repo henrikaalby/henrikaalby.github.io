@@ -1,56 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Henrik Aalby</title>
 
-    <a href="index.html">Hjem</a>
-    <a href="Dyreprosjekt/Dyr.html">Uke 34</a>
-    <a href="Uke35%20arbeid/Lekse35.html">Film (lekse uke 35)</a>
-</head>
-<body>
+    <style>
 
-    <h1>Søk på google</h1>
+        @keyframes slideIt {
+            0% {
+                background-image: url("uke36bilde.jpg");
+            }
 
-    <img src="google-200x200.7714256da16f.png">
+            30% {
+               background-image: url("uke36bilde.jpg");
+            }
 
-    <form action="https://www.google.no/search">
-    <input type="text" name="q" >
-    <button type="submit">Søk</button>
-    </form>
+            35% {
+                background-image: url("uke36bilde2.jpg");
+            }
+            60% {
+                background-image: url("uke36bilde2.jpg");
+            }
 
-    <h1>Søk på Youtube</h1>
+            65% {
+               background-image: url("uke36bilde3.jpg");
+            }
 
-    <form action="https://www.youtube.com/results">
-    <input type="text" name="q" >
-    <button type="submit">Søk</button>
-    </form>
+            95% {
+                background-image: url("uke36bilde3.jpg");
+            }
 
-
-    <h1>Søk i Lovdata</h1>
-
-    <form action="https://lovdata.no/sok?">
-    <input type="text" name="q" >
-    <button type="submit">Søk</button>
-    </form>
-
-    <h1>Finn deg en brukt bil på Finn</h1>
-
-    <form action="http://www.finn.no/car/used/search.html">
-        <input type="checkbox" name="make" value="0.800" > pontiac <br>
-        <input type="checkbox" name="make" value="0.7147"> Mini <br>
-        <button type="submit">GO</button>
-    </form>
-
-    <h1>Prosjekt i timen uke 34</h1>
-
-    <a href="Dyreprosjekt/Dyr.html" >DyreProsjekt</a>
+            100% {
+                background-image: url("uke36bilde.jpg");
+            }
+        }
 
 
 
+        body {
+            min-height: 100vh;
+            background-image: url("uke36bilde.jpg");
+            background-size:cover ;
+            background-position: center bottom;
+            animation: slideIt 20s infinite;
+
+            display: flex;
+            justify-content: center;
+            align-items: left;
+        }
+
+    </style>
+
+    <style>
+
+
+        <style>
+        a {
+            background-color: ghostwhite;
+            width: 250px;
+            height: 200px;
+            float: left;
+            margin: 10px; /*Luft utenfor boksen*/
+            padding: 15px; /*Luft inne i boksen*/
+            text-align: center; /*Midtstiller tekst*/
+            color:black; /*farge på tekst*/
+            transition: 0.7s;
+        }
+
+
+    </style>
+
+
+    <style>
+
+        nav {
+            background-color: lightslategray;
+            font-weight: 800px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 32px ;
+
+
+        }
+
+        nav a {
+            padding-left: 30px;
+            padding-right: 30px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+
+    </head>
+
+    <body>
+
+
+    <nav>
+        <a href="index.html"">Hjem</a>
+        <a href="Dyreprosjekt/Dyr.html">Dyreprosjekt</a>
+        <a href="xxx">Søkemotor</a>
+    </nav>
 
 
 
 
-</body>
-</html>
+    </html>
