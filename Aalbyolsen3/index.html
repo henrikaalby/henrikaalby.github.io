@@ -111,7 +111,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 work"> <a href="images/work-1.jpg" class="work-box"> <img src="images/work-1.jpg" alt="">
         <div class="overlay">
           <div class="overlay-caption">
-            <h5>Se vårt sammarbeid med Drammenjentene 2018!</h5>
+            <h5>Se vårt sammarbeid med Surnadal 2018!</h5>
             <p>Website Design</p>
           </div>
         </div>
@@ -309,8 +309,8 @@
         <h5>Shoot An Email</h5>
         <p>We are happy to talk you through any projects or run live demos for those wishing to see what it is to use our products and how they look like.</p>
         <div id="message"></div>
-        <form method="post" action="php/contact.php" name="cform" id="cform">
-          <input name="name" id="name" type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
+        <form  id="cform">
+          <input name="name" id="inpNavn" type="text" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Your name..." >
           <input name="email" id="email" type="email" class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 noMarr" placeholder="Email Address..." >
           <textarea name="comments" id="comments" cols="" rows="" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Project Details..."></textarea>
           <input type="submit" id="submit" name="send" class="submitBnt" value="Send your query">
@@ -361,15 +361,57 @@
   <!-- footer top --> 
   
 </footer>
-<!-- Footer section --> 
-<!-- JS FILES --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flexslider-min.js"></script> 
-<script src="js/jquery.fancybox.pack.js"></script> 
-<script src="js/retina.min.js"></script> 
-<script src="js/modernizr.js"></script> 
-<script src="js/main.js"></script> 
-<script type="text/javascript" src="js/jquery.contact.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBCq0zlkT8kzTgRJQeSheMaQfygJi3P4lI",
+        authDomain: "aalby-olsen.firebaseapp.com",
+        databaseURL: "https://aalby-olsen.firebaseio.com",
+        projectId: "aalby-olsen",
+        storageBucket: "",
+        messagingSenderId: "621424138292"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+
+  var database = firebase.database();
+  var meldinger = database.ref("meldinger");
+
+  var cform = document.getElementById("cform");
+  var email = document.getElementById("email");
+  var inpNavn = document.getElementById("inpNavn");
+  var comments = document.getElementById("comments");
+  var msg = document.getElementById("simple-msg");
+
+  function lagreMelding(evt) {
+      evt.preventDefault();
+      var melding = {
+          epost: email.value,
+          navn: inpNavn.value,
+          kommentarer: comments.value
+      };
+
+      console.log(melding);
+
+      meldinger.push(melding);
+
+      msg.innerHTML = "Meldingen din er sendt. Takk skal du ha.";
+
+      email.value = "";
+      inpNavn.value = "";
+      comments.value = "";
+
+  }
+
+
+  cform.onsubmit = lagreMelding;
+
+</script>
 </body>
 </html>
