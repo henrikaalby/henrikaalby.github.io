@@ -42,7 +42,7 @@ h5 {
 	font-weight: 700;
 }
 .btn {
-	background-color: #3bc492;
+	background-color: #00aeda;
 	color: #fff;
 	font-size: 13px;
 	font-weight: 600;
@@ -54,7 +54,7 @@ h5 {
 	text-transform: uppercase;
 }
 .btn:hover, .btn:focus {
-	background-color: #3d3d3d;
+	background-color: #00cdfc;
 	color: #fff;
 }
 .btn-large {
@@ -589,6 +589,7 @@ padding:15px 30px 15px 30px;
 .conForm .submitBnt:hover {
 	background: #00cdfc;
 	color: #fff;
+	transition: 0.3s;
 }
 #success_page{
 	color: #00bdbd;
