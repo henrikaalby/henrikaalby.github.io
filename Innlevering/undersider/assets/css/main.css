@@ -3122,7 +3122,7 @@
 			}
 
 		#header .logo {
-			font-family: "Merriweather", Arial, sans-serif;
+			font-size: 30px;
 			display: inline-block;
 			height: inherit;
 			left: 0;
@@ -3131,15 +3131,13 @@
 			padding: 0;
 			position: absolute;
 			top: 0;
-			color: #00aeda;
-			font-size: 1.75em;
+			color: white;
 			text-transform: none;
 			font-weight: normal;
-			padding: 0;
 		}
 
 			#header .logo:hover {
-				color: #00cdfc;
+				color: #B5B5B5;
 			}
 
 		#header a {
