@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sport</title>
+    <title>Elektronikk</title>
     <style>
         body {
             background-color: #eee;
@@ -15,7 +15,7 @@
         }
         section {
             display: grid;
-            grid-gap: 30px; /* Mellomrom mellom hver film */
+            grid-gap: 30px; /* Mellomrom mellom hvert spørsmål */
         }
         p {
             margin-top: 0;
@@ -82,7 +82,7 @@
 
     // Firebase-kontakt
     const db = firebase.database();
-    const diskusjoner = db.ref("diskusjoner/sport");
+    const diskusjoner = db.ref("diskusjoner/elektronikk");
 
     function visDiskusjon(snap) {
         console.log("HALLO");

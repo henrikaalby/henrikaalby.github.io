@@ -2067,7 +2067,6 @@ form label {
   font-size: 22px;
 }
 
-/*# sourceMappingURL=style.css.map */
 
 #inpTekst {
   border-radius: 30px;
@@ -2080,4 +2079,20 @@ form label {
 
 .dotno {
   color: #00c6ff;
+}
+
+.allekat {
+  text-align: center;
+  font-size: 120%;
+  background-color: #00c6ff; /* knapp farge */
+  color: lightslategrey; /* tekst farge */
+  border-radius: 30px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e929";
+}
+
+.allekat:hover {
+  opacity: 0.6;
+  transition: 0.3s;
 }
