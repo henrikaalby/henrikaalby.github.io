@@ -34,6 +34,9 @@
         <p>Navn</p>
         <input type="text" autocomplete="off" autofocus placeholder="Hvem er du?" id="inpNavn" required>
 
+        <p>Skriv ett ord om hva spørsmålet ditt handler om</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Ett ord" id="tag" required>
+
         <button type="submit" class="button">Lagre  diskusjon</button>
 
     </form>
@@ -63,6 +66,8 @@
     const  velgKat = document.getElementById("velgKat");
     const inpDetaljer = document.getElementById("inpDetaljer");
     const inpNavn = document.getElementById("inpNavn");
+    const tag = document.getElementById("tag");
+
 
     function lagreDiskusjon(evt){
         evt.preventDefault();
@@ -71,7 +76,8 @@
            kategori: velgKat.value,
            spmstiller: inpNavn.value,
            spørsmål: q.value,
-           tekst: inpDetaljer.value
+           tekst: inpDetaljer.value,
+            tag: tag.value
         });
 
         document.location.href = velgKat.value + ".html";
