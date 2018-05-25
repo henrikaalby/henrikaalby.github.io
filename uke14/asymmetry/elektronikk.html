@@ -46,6 +46,11 @@
             transition: 0.2s;
         }
 
+        * {
+            text-decoration: none;
+            color: black;
+        }
+
     </style>
 </head>
 <body>
@@ -82,7 +87,7 @@
 
     // Firebase-kontakt
     const db = firebase.database();
-    const diskusjoner = db.ref("diskusjoner/elektronikk");
+    const diskusjoner = db.ref("diskusjoner/Elektronikk");
 
     function visDiskusjon(snap) {
         console.log("HALLO");
@@ -91,13 +96,14 @@
 
         var artikkel = `
                 <article>
+                        <a href="visdiskusjon.html?id=${key}&kat=Elektronikk">
                         <p>${diskusjon.spørsmål}</p>
                         <p class="meta">${diskusjon.kategori}</p>
                         <br>
                         <p>${diskusjon.tekst}</p>
                         <br>
                         <p>${diskusjon.spmstiller}</p>
-                    </div>
+                    </a>
                 </article>
             `;
 

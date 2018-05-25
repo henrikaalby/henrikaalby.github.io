@@ -19,6 +19,7 @@
         }
         p {
             margin-top: 0;
+            text-decoration: none;
         }
         #alleDiskusjoner > article {
             position: relative;
@@ -45,6 +46,12 @@
             opacity: 0.7;
             transition: 0.2s;
         }
+
+        * {
+            text-decoration: none;
+            color: black;
+        }
+
 
     </style>
 </head>
@@ -82,7 +89,7 @@
 
     // Firebase-kontakt
     const db = firebase.database();
-    const diskusjoner = db.ref("diskusjoner/sport");
+    const diskusjoner = db.ref("diskusjoner/Sport");
 
     function visDiskusjon(snap) {
         console.log("HALLO");
@@ -91,17 +98,18 @@
 
         var artikkel = `
                 <article>
+                     <a href="visdiskusjon.html?id=${key}&kat=Sport">
                         <p>${diskusjon.spørsmål}</p>
                         <p class="meta">${diskusjon.kategori}</p>
                         <br>
                         <p>${diskusjon.tekst}</p>
                         <br>
                         <p>${diskusjon.spmstiller}</p>
-                    </div>
+                    </a>
                 </article>
             `;
 
-        alleDiskusjoner.innerHTML += artikkel;
+        alleDiskusjoner.innerHTML = artikkel + alleDiskusjoner.innerHTML;
     }
 
     diskusjoner
