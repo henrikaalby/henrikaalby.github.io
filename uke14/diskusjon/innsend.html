@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Innsend</title>
+    <link rel="stylesheet" href="css/innsend.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+</head>
+<body>
+
+<section class="input">
+
+    <h1>Skriv inn ditt spørsmål!</h1>
+
+    <form id="skjema">
+        <p>Spørsmål</p>
+        <input id="q" type="text" autocomplete="off" autofocus placeholder="Hva er ditt spørsmål?" required>
+
+        <p>Kategori</p>
+        <select id="velgKat" required>
+            <option value="">Velg kategori</option>
+            <option value="Hage">Hage</option>
+            <option value="Elektronikk">Elektronikk</option>
+            <option value="Friluftsliv">Friluftsliv</option>
+            <option value="Klær">Klær</option>
+            <option value="Sport">Sport</option>
+            <option value="Uteliv">Uteliv</option>
+        </select>
+
+        <p>Tekst</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Skriv utfyllende hva du lurer på" id="inpDetaljer" required>
+
+        <p>Navn</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Hvem er du?" id="inpNavn" required>
+
+        <p>Skriv ett ord om hva spørsmålet ditt handler om</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Ett ord" id="tag" required>
+
+        <button type="submit" class="button">Lagre  diskusjon</button>
+
+    </form>
+
+
+</section>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBPfJuj74_ocobmQw4K9lkQ14Aix67gmJY",
+        authDomain: "diskusjon-9cd15.firebaseapp.com",
+        databaseURL: "https://diskusjon-9cd15.firebaseio.com",
+        projectId: "diskusjon-9cd15",
+        storageBucket: "diskusjon-9cd15.appspot.com",
+        messagingSenderId: "1068676568436"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    const db = firebase.database();
+
+    const skjema = document.getElementById("skjema");
+    const  velgKat = document.getElementById("velgKat");
+    const inpDetaljer = document.getElementById("inpDetaljer");
+    const inpNavn = document.getElementById("inpNavn");
+    const tag = document.getElementById("tag");
+
+
+    function lagreDiskusjon(evt){
+        evt.preventDefault();
+        const forum = db.ref("diskusjoner/" + velgKat.value);
+        forum.push({
+           kategori: velgKat.value,
+           spmstiller: inpNavn.value,
+           spørsmål: q.value,
+           tekst: inpDetaljer.value,
+            tag: tag.value
+        });
+
+        document.location.href = velgKat.value + ".html";
+
+    }
+
+    skjema.onsubmit = lagreDiskusjon;
+
+
+</script>
+
+</body>
+</html>
