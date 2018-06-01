@@ -82,15 +82,18 @@
 		   		<div class="container">
 		   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 		   				<div class="slider-text-inner">
-		   					<h2>Søk blant tusenvis av forumer</h2>
+		   					<h2>Søk blant tusenvis av diskusjoner</h2>
 							<input type="text" class="btn btn-primary btn-lg" id="inpTekst" autocomplete="off" autofocus placeholder="Hva lurer du på?">
 							<!--<input type="text" class="btn btn-primary btn-lg" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."> -->
+							<!-- <div class="pil">&darr;</div> -->
 		   				</div>
 		   			</div>
 		   		</div>
 		   	</li>
 	  	</div>
 	</div>
+
+		<div id="divResults"></div>
 
 	<div class="gtco-section-overflow">
 
@@ -173,7 +176,7 @@
 
 	<footer id="gtco-footer" role="contentinfo">
 		<div class="gtco-container">
-			
+
 			<div class="row copyright">
 				<div class="col-md-12">
 					<p class="pull-left">
@@ -217,6 +220,98 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+		<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+		<script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBPfJuj74_ocobmQw4K9lkQ14Aix67gmJY",
+                authDomain: "diskusjon-9cd15.firebaseapp.com",
+                databaseURL: "https://diskusjon-9cd15.firebaseio.com",
+                projectId: "diskusjon-9cd15",
+                storageBucket: "diskusjon-9cd15.appspot.com",
+                messagingSenderId: "1068676568436"
+            };
+            firebase.initializeApp(config);
+		</script>
+
+		<script>
+            const inpTekst = document.getElementById("inpTekst");
+            const divResults = document.getElementById("divResults");
+
+            const db = firebase.database();
+			const uteliv = db.ref("diskusjoner/Uteliv");
+			const sport = db.ref("diskusjoner/Sport");
+            const elektronikk =db.ref("diskusjoner/Elektronikk")
+            const friluftsliv =db.ref("diskusjoner/Friluftsliv")
+            const hage =db.ref("diskusjoner/Hage")
+            const klær =db.ref("diskusjoner/Klær")
+
+
+            function visResultat(snap){
+			    const res = snap.val();
+			    const key = snap.key;
+			    console.log(res);
+			    divResults.innerHTML += `
+			    	<article class="søk">
+			    		<a class="søk2" href="visdiskusjon.html?id=${key}&kat=${res.kategori}">${res.spørsmål}</a>
+			    	</article>
+			    `;
+			}
+
+			inpTekst.oninput = function() {
+
+			    if(inpTekst.value === ""){
+					divResults.innerHTML = "";
+                    return;
+				}
+
+			    divResults.innerHTML = "";
+			    const q = (inpTekst.value).toLowerCase();
+
+			    uteliv
+					.orderByChild("tag")
+					.startAt(q)
+					.endAt(q + "\uf8ff")
+					.on("child_added", visResultat);
+
+                sport
+                    .orderByChild("tag")
+                    .startAt(q)
+                    .endAt(q + "\uf8ff")
+                    .on("child_added", visResultat);
+
+                elektronikk
+                    .orderByChild("tag")
+                    .startAt(q)
+                    .endAt(q + "\uf8ff")
+                    .on("child_added", visResultat);
+
+                friluftsliv
+                    .orderByChild("tag")
+                    .startAt(q)
+                    .endAt(q + "\uf8ff")
+                    .on("child_added", visResultat);
+
+                hage
+                    .orderByChild("tag")
+                    .startAt(q)
+                    .endAt(q + "\uf8ff")
+                    .on("child_added", visResultat);
+
+                klær
+                    .orderByChild("tag")
+                    .startAt(q)
+                    .endAt(q + "\uf8ff")
+                    .on("child_added", visResultat);
+
+
+			}
+
+
+		</script>
+
+
 
 	</body>
 </html>

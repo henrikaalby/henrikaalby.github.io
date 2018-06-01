@@ -2144,3 +2144,36 @@ form label {
   background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 
+.søk {
+  max-width: 970px;
+  margin: auto;
+  display: grid;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 15px;
+  padding: 10px;
+  border-bottom: 2px solid #cacaca;
+  background-color: #e6e9ef;
+}
+
+.søk2 {
+  color: black;
+}
+
+.søk:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.pil {
+  color: white;
+  position: fixed;
+  padding-top: 200px;
+  padding-left: 450px;
+}
+
+
+
+

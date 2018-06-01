@@ -6,6 +6,15 @@
     <title>Innsend</title>
     <link rel="stylesheet" href="css/innsend.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+
+    <style>
+
+        body {
+            padding: 15px;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -77,7 +86,7 @@
            spmstiller: inpNavn.value,
            spørsmål: q.value,
            tekst: inpDetaljer.value,
-            tag: tag.value
+            tag: (tag.value).toLowerCase()
         });
 
         document.location.href = velgKat.value + ".html";
