@@ -2174,6 +2174,12 @@ form label {
   padding-left: 450px;
 }
 
+#divresults {
+  position: absolute;
+  text-align: center;
+
+}
+
 
 
 
