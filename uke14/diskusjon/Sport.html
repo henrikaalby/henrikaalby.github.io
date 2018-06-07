@@ -52,10 +52,57 @@
             color: black;
         }
 
+        .hKat {
+            text-align: center;
+
+        }
+
+        .header {
+            display: grid;
+            grid-template-areas: 'tilbake kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat bil bil bil' ;
+        }
+
+        .tilbake { grid-area: tilbake;  }
+        .kat { grid-area: kat }
+
+        .tilbake {
+            background-color: #14679e;
+            text-align: center;
+        }
+
+        .tilbakeA {
+            color: white;
+        }
+
+
+
+
 
     </style>
 </head>
 <body>
+
+
+
+  <header>
+
+      <div class="header">
+
+      <div class="kat">
+      <h1 class="hKat">Sport</h1>
+      </div>
+
+      <div class="tilbake">
+          <a href="index.html">
+              <h1 class="tilbakeA">&#8592; Tilbake</h1>
+          </a>
+      </div>
+
+      </div>
+
+  </header>
+
+
 
 <main>
     <section id="alleDiskusjoner">
@@ -98,7 +145,7 @@
 
         var artikkel = `
                 <article>
-                     <a href="visdiskusjon.html?id=${key}&kat=Sport">
+                     <a href="test2.html?id=${key}&kat=Sport">
                         <p>${diskusjon.spørsmål}</p>
                         <p class="meta">${diskusjon.kategori}</p>
                         <br>

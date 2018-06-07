@@ -2149,16 +2149,17 @@ form label {
   margin: auto;
   display: grid;
   position: relative;
-  display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 15px;
   padding: 10px;
   border-bottom: 2px solid #cacaca;
   background-color: #e6e9ef;
+  width: 500px;
 }
 
 .søk2 {
   color: black;
+  text-align: center;
 }
 
 .søk:hover {
@@ -2177,7 +2178,6 @@ form label {
 #divresults {
   position: absolute;
   text-align: center;
-
 }
 
 

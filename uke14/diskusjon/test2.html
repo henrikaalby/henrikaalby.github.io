@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <title></title>
+
+    <style>
+
+
+        body {
+            max-width: 970px;
+            margin: auto;
+        }
+
+        /* Chat containers */
+        .container {
+            border: 2px solid #dedede;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        /* Darker chat container */
+        .darker {
+            border-color: #ccc;
+            background-color: #ddd;
+        }
+
+        /* Clear floats */
+        .container::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Style images */
+        .container img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        /* Style the right image */
+        .container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+        }
+
+        h1 {
+            font-size: 130%;
+        }
+
+
+
+        @media (max-width: 970px) {
+            body {
+                padding: 15px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<main>
+    <article id="spm" class="container darker spm_h"></article>
+    <section id="sec_kommentarer" class="container"></section>
+    <section>
+        <form id="skjema">
+            <h1 class="mindre">Skriv en kommentar</h1>
+            <input type="text" id="inpNavn" required placeholder="Hvem er du?">
+            <input type="text" id="inpKommentar" required placeholder="Gi tilbakemelding">
+            <button type="submit" class="input button">Legg inn kommentar</button>
+        </form>
+    </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBPfJuj74_ocobmQw4K9lkQ14Aix67gmJY",
+        authDomain: "diskusjon-9cd15.firebaseapp.com",
+        databaseURL: "https://diskusjon-9cd15.firebaseio.com",
+        projectId: "diskusjon-9cd15",
+        storageBucket: "diskusjon-9cd15.appspot.com",
+        messagingSenderId: "1068676568436"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    const spm = document.getElementById("spm");
+    const skjema = document.getElementById("skjema");
+    const inpKommentar = document.getElementById("inpKommentar");
+    const inpNavn = document.getElementById("inpNavn");
+
+    const sec_kommentarer = document.getElementById("sec_kommentarer");
+
+
+
+    const db = firebase.database();
+
+    const url_string = window.location.href;
+    const url = new URL(url_string);
+    const id = url.searchParams.get("id");
+    const kat = url.searchParams.get("kat");
+
+    const ref = db.ref("diskusjoner/" + kat + "/" + id);
+    const kommentarer = db.ref("kommentarer");
+
+
+    function lagreKommentar(evt){
+        evt.preventDefault();
+        let kommentar = {
+            tekst: inpKommentar.value,
+            navn: inpNavn.value,
+            tid: firebase.database.ServerValue.TIMESTAMP,
+            id: id
+        };
+        kommentarer.push(kommentar);
+        inpKommentar.value = "";
+    }
+
+    function visSpm(snap){
+        const data = snap.val();
+        const key = snap.key;
+
+        spm.innerHTML = `
+                <h2 class="spm_h h2">${data.spørsmål}</h2>
+                <p>${data.tekst}</p>
+                <p>${data.spmstiller}</p>
+            `;
+
+    }
+
+
+    function visKommentar(snap) {
+
+        const kommentar = snap.val();
+        sec_kommentarer.innerHTML += `
+                <article>
+                    <h2 class="h2">${kommentar.navn}</h2>
+                    <p>${kommentar.tekst}</p>
+                </article>
+            `;
+
+    }
+
+    kommentarer
+        .orderByChild("id")
+        .equalTo(id)
+        .on("child_added", visKommentar);
+
+    ref.on("value", visSpm);
+    skjema.onsubmit = lagreKommentar;
+
+</script>
+
+
+</body>
+</html>
