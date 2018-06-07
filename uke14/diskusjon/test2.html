@@ -9,7 +9,7 @@
     <style>
 
 
-        body {
+        main {
             max-width: 970px;
             margin: auto;
         }
@@ -64,17 +64,57 @@
             }
         }
 
+        .hKat {
+            text-align: center;
+
+        }
+
+        .header {
+            display: grid;
+            grid-template-areas: 'tilbake kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat bil bil bil' ;
+        }
+
+        .tilbake { grid-area: tilbake;  }
+        .kat { grid-area: kat }
+
+        .tilbake {
+            background-color: #14679e;
+            text-align: center;
+        }
+
+        .tilbakeA {
+            color: white;
+        }
+
 
     </style>
 </head>
 <body>
+
+<header>
+
+    <div class="header">
+
+        <div class="kat">
+            <h1 class="hKat">Sport</h1>
+        </div>
+
+        <div class="tilbake">
+            <a href="index.html">
+                <h1 class="tilbakeA">&#8592; Tilbake</h1>
+            </a>
+        </div>
+
+    </div>
+
+</header>
 
 
 
 
 <main>
     <article id="spm" class="container darker spm_h"></article>
-    <section id="sec_kommentarer" class="container"></section>
+    <section id="sec_kommentarer"></section>
     <section>
         <form id="skjema">
             <h1 class="mindre">Skriv en kommentar</h1>
@@ -149,7 +189,7 @@
 
         const kommentar = snap.val();
         sec_kommentarer.innerHTML += `
-                <article>
+                <article class="container">
                     <h2 class="h2">${kommentar.navn}</h2>
                     <p>${kommentar.tekst}</p>
                 </article>
