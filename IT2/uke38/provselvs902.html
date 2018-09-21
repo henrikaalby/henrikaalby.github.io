@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv s.90 oppgave 2</title>
+</head>
+<body>
+
+
+    <canvas id="canvas" height="300" width="300"></canvas>
+
+
+    <script>
+
+        var canvas = document.getElementById("canvas");
+        var  ctx = canvas.getContext("2d");
+
+
+        var xPosStart = 0;
+        var xPosSlutt = 300;
+        var yPos = 0;
+
+        while (yPos < 300){
+            ctx.moveTo(xPosStart,yPos);
+            ctx.lineTo(xPosSlutt, yPos);
+            ctx.stroke();
+            yPos = yPos + 10;
+        }
+
+    </script>
+
+</body>
+</html>
