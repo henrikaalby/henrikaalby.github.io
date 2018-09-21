@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bilreklame</title>
+
+    <style>
+
+        @keyframes drive {
+            0% {
+                left: -820px;
+            }
+            30% {
+                left: 100px;
+            }
+            70% {
+                left: 100px;
+            }
+            100% {
+                left: 990px;
+            }
+        }
+
+        @keyframes roll {
+            0% {
+                transform: rotate(0);
+            }
+            30% {
+                transform: rotate(2turn);
+
+            }
+            70% {
+                transform: rotate(2turn);
+            }
+            100% {
+                transform: rotate(4turn);
+            }
+        }
+
+
+        #banner {
+            width: 970px;
+            height: 400px;
+            background-color: darkgray;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #bil {
+            background-image: url("porsche.png");
+            width: 800px;
+            height: 274px;
+            position: absolute;
+            top: 80px;
+            left: 100px;
+            animation: drive 6s;
+        }
+
+        #bakhjul {
+            position: absolute;
+            left: 130px;
+            bottom: 26px;
+        }
+
+        #forhjul {
+            position: absolute;
+            right: 132px;
+            bottom: 28px;
+        }
+
+        #bakhjul, #forhjul {
+            animation: roll 6s;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div id="banner">
+
+        <div id="bil">
+            <img src="bakhjul.png" id="bakhjul">
+            <img src="forhjul.png" id="forhjul">
+        </div>
+
+    </div>
+
+
+</body>
+</html>

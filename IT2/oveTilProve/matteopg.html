@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matte oppgaver</title>
+</head>
+<body>
+
+
+    <script>
+
+        /*
+        var hoyde = 10;
+        var bredde = 5;
+
+
+        document.write(`
+        <p>Dersom høyden er 10 og bredden er 5 så er arealet: ${bredde*hoyde}</p>
+        <br><br>
+        <p>Og omkretsen er: ${2*(hoyde+bredde)}</p>
+        `) // regner ut areal og omkrets
+
+        */
+
+        /*
+        var value =  Math.round(Math.random()*6 +1);
+
+        document.write(value); */
+
+        var radius = Number(prompt("SKriv inn radiusen til kula"));
+
+        var omkrets = 2*Math.PI*radius;
+
+        var volum = (4*Math.PI*Math.pow(radius,3)/3);
+
+        var overflate = 4*Math.PI*Math.pow(radius,2);
+
+        overflate = overflate.toFixed(2);
+        volum = volum.toFixed(2);
+        omkrets = omkrets.toFixed(2);
+        radius = radius.toFixed(2);
+
+        document.write(`
+        <p>Dersom radiusen er ${radius}, er:</p>
+        <br>
+        <p>omkrets: ${omkrets}</p>
+        <br>
+        <p>Volum: ${volum}</p>
+        <br>
+        <p>Overflate: ${overflate}</p>
+        `)
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

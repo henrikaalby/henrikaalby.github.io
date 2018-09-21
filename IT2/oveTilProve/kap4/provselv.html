@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv</title>
+</head>
+<body>
+
+
+    <img id="bilde">
+
+    <script>
+
+        var ukedag = prompt("Hvilken dag er det?");
+        var dato = prompt("Hvilken dato er det?");
+        var bilde = document.getElementById("bilde");
+        ukedag = ukedag.toLowerCase();
+
+
+        if(ukedag === "fredag" && dato === "13" ){
+            document.write("Pass deg!");
+            bilde.src = "../Bilder/henrik.jpg";
+
+        }
+        else if(ukedag === "fredag"){
+            document.write("Helg snart!");
+        }
+        else {
+            document.write("Ha en fin dag!");
+            bilde.src = "../Bilder/gløer.png";
+        }
+
+    </script>
+
+
+</body>
+</html>

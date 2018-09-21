@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sted.no</title>
+
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            border-bottom: 10px solid red;
+            font-family: "Chaparral Pro";
+        }
+
+        .sok {
+            padding-top: 50px;
+            font-size: 60px;
+            color: #D60000;
+
+        }
+
+        input[type=text] {
+           color: grey;
+           width: 650px;
+         
+        }
+        .sook {
+            font-size: 80%;
+        }
+
+        header > div > img {
+            width: 3.5%;
+            
+        }
+
+        header > div > nav > a {
+            font-size: 50%;
+            text-align: center;
+            color: red;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        header > div > nav {
+            text-align: center;
+        }
+
+        nav > a:hover {
+            text-decoration: underline;
+            transition: 0s;
+        }
+
+        body {
+            font-family: "Chaparral Pro";
+            min-height: 100vh;
+            display: grid;
+            grid-auto-rows: auto 1fr auto;
+            
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
+            padding: 15px;
+            grid-gap: 15px;
+        }
+
+        main > article > h1 {
+            text-align: center;
+            font-size: 100%;
+
+        }
+
+        main > article {
+            padding: 4px;
+            border: 2px solid grey;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+
+
+        }
+
+        footer {
+            text-align: center;
+            border-top: 10px solid red;
+            padding-top: 20px;
+            color: grey;
+            font-family: "Chaparral Pro";
+            margin-bottom: 15px;
+
+        }
+        main > article > div > img {
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <p1>
+                <img src="Sted.png" alt="" height="175" width="175">
+            </p1>
+        </div>
+        <div class="sok">
+            <img src="Redsearch.png" alt="" width="">  <input type="text" width="300px" class="sook" id="inpTekst" autocomplete="off" autofocus placeholder="Søk etter sted, by eller land..">
+            <br>
+            <nav>
+                <a href="LastOpp.html">Last opp egen erfaring</a>
+            </nav>
+        </div>
+        <div>
+
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <div>
+                <h1>Marbella</h1>
+                <br>
+                <p1>By:</p1>
+                <br>
+                <p1>Land:</p1>
+                <br>
+                <p1>Beskrivelse:</p1>
+            </div>
+            <div>
+                <img src="Marbella.jpg" alt="">
+            </div>
+        </article>
+
+        <article>
+            <div>
+                <h1>Marbella</h1>
+                <br>
+                <p1>By:</p1>
+                <br>
+                <p1>Land:</p1>
+                <br>
+                <p1>Beskrivelse:</p1>
+            </div>
+            <div>
+                <img src="Marbella.jpg" alt="">
+            </div>
+        </article>
+
+        <article>
+            <div>
+                <h1>Marbella</h1>
+                <br>
+                <p1>By:</p1>
+                <br>
+                <p1>Land:</p1>
+                <br>
+                <p1>Beskrivelse:</p1>
+            </div>
+            <div>
+                <img src="Marbella.jpg" alt="">
+            </div>
+        </article>
+
+        <article>
+            <div>
+                <h1>Marbella</h1>
+                <br>
+                <p1>By:</p1>
+                <br>
+                <p1>Land:</p1>
+                <br>
+                <p1>Beskrivelse:</p1>
+            </div>
+            <div>
+                <img src="Marbella.jpg" alt="">
+            </div>
+        </article>
+
+        <article>
+            <div>
+                <h1>Marbella</h1>
+                <br>
+                <p1>By:</p1>
+                <br>
+                <p1>Land:</p1>
+                <br>
+                <p1>Beskrivelse:</p1>
+            </div>
+            <div>
+                <img src="Marbella.jpg" alt="">
+            </div>
+        </article>
+
+        <article>
+
+        </article>
+
+    </main>
+
+
+    <footer>
+        <p1> Sted.no © 2018</p1>
+    </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBMG0wQftiKGh_p3C2SWiGrcHKJPT0tqJM",
+            authDomain: "sted-a7db2.firebaseapp.com",
+            databaseURL: "https://sted-a7db2.firebaseio.com",
+            projectId: "sted-a7db2",
+            storageBucket: "sted-a7db2.appspot.com",
+            messagingSenderId: "925012934049"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        const inpTekst = document.getElementById("inpTekst");
+
+        inpTekst.onblur = () => {
+            inpTekst.value = "";
+        }
+
+    </script>
+    
+    <script>
+        const alleFilmene = document.getElementById("alleFilmene");
+
+        const db = firebase.database();
+        const filmer = db.ref("imdb/filmer");
+
+        function visFilm(filmSnap) {
+            var key = filmSnap.key;
+            var film = filmSnap.val();
+
+            var artikkel =`
+                <article>
+                <div class="meta">${film.Metascore}</div>
+                    <img src="${film.Poster}">
+                    <div>
+                    <h1>${film.Title}</h1>
+                    <p>${film.Actors}</p>
+                    <p>${film.Genre}</p>
+                    <p>${film.Plot}</p>
+                    </div>
+                    </article>
+                     `;
+            alleFilmene.innerHTML += artikkel;
+
+        }
+
+        filmer.on("child_added", visFilm);
+
+    </script>
+
+</body>
+
+
+</html>

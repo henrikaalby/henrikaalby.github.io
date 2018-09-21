@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hei</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <style>
+
+
+
+
+
+    #cb {
+        display: none;
+    }
+    #burger {
+        display: flex;
+        width: 16px;
+        height: 16px;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    #burger > div {
+        background-color: #3c3c3c;
+        height: 2px;
+        transition: 0.5s;
+    }
+    #menu {
+        width: 300px;
+        background-color: rgba(49,48,52,0.73);
+        position: absolute;
+        top: 27px;
+        left: -300px;
+        min-height: calc(100vh - 64px);
+        transition: 0.8s;
+    }
+    #cb:checked ~ #menu {
+        left: 0;
+    }
+    #cb:checked ~ #burger >:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+    #cb:checked ~ #burger >:nth-child(2) {
+        opacity: 0;
+    }
+    #cb:checked ~ #burger >:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+
+
+        <input type="checkbox" id="cb">
+        <label id="burger" for="cb">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+        <nav id="menu">
+
+            <ul>
+
+                <a  class="dec-no" href="#"><li>Hjem</li></a>
+                <a href="#"><li>Om meg </li></a>
+                <a href="#"><li>Mine ferier</li></a>
+
+            </ul>
+
+        </nav>
+
+        <h1>Min sommerferie!</h1>
+
+    </header>
+
+
+    <main>
+
+        <article>
+
+            <h3>Praha</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consectetur culpa cumque cupiditate, deleniti earum exercitationem fuga fugit id ipsa iusto minima molestias mollitia neque odit officia placeat qui quidem sint velit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda distinctio dolorem dolores eligendi, enim eos eum ex exercitationem id in maxime natus necessitatibus nesciunt officia perferendis quos reiciendis rem suscipit ut velit?</p>
+
+        </article>
+
+    </main>
+
+
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+        alert ("HeiHei");
+    </script>
+
+</body>
+</html>

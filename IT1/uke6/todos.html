@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hva skal jeg gjøre?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+        main {
+            background-color: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: salmon;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            padding-right: 5px;
+            font-weight: bold;
+            opacity: 0.1;
+            cursor: pointer;
+        }
+        #todolist > article:hover .lblDelete {
+            opacity: 1;
+        }
+        #todolist > article > label {
+            /* Ganger grunnstørrelsen som er 16px med 1.5 */
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>TODO</h1>
+    <input type="text" id="inpTekst" autocomplete="off" autofocus placeholder="Hva må du huske å gjøre">
+    <section id="todolist">
+
+    </section>
+</main>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBRdNli3VCUntyKyx-g7_bflRtNmxRJzKs",
+        authDomain: "it1-fredag-c8bb8.firebaseapp.com",
+        databaseURL: "https://it1-fredag-c8bb8.firebaseio.com",
+        projectId: "it1-fredag-c8bb8",
+        storageBucket: "it1-fredag-c8bb8.appspot.com",
+        messagingSenderId: "870698439729"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    // Referanser til HTML-elementer
+
+    const hei = document.getElementById("hei");
+
+
+    const inpTekst = document.getElementById("inpTekst");
+    const todolist = document.getElementById("todolist");
+    const db = firebase.database();
+    const todos = db.ref("todos");
+    function lagreTodo() {
+        todos.push({
+            tekst: inpTekst.value,
+            done: false
+        });
+        inpTekst.value = ""; // Nuller ut input-feltet
+    }
+    function visTodo(snap) {
+        const pk = snap.key;
+        const todo = snap.val();
+        todolist.innerHTML += `
+                <article id="${pk}">
+                    <label class="lblTodo">${todo.tekst}</label>
+                    <label onclick="fjern('${pk}')" class="lblDelete">X</label>
+                </article>
+            `;
+    }
+    function fjern(pk) {
+        // Fjerner todo fra databasen
+        const todo = todos.child(pk);
+        todo.remove();
+    }
+    function fjernHTML(fjernet) {
+        const pk = fjernet.key;
+        const htmlElement = document.getElementById(pk);
+        todolist.removeChild(htmlElement);
+    }
+    inpTekst.onchange = lagreTodo;
+    todos.on("child_added", visTodo);
+    todos.on("child_removed", fjernHTML);
+</script>
+
+</body>
+</html>

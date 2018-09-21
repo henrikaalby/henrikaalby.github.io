@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matte oppgave</title>
+</head>
+<body>
+
+
+    <script>
+
+        var inpantpoeng = Number(prompt("Skriv inn hvor mange poeng du fikk"));
+        var inpmaksantpoeng = Number(prompt("Skriv inn hvor mange poeng det var mulig å få"));
+
+        var karakter = (inpantpoeng/inpmaksantpoeng)*6;
+
+        /*
+        karakter = karakter.toFixed(0);
+        */
+        karakter = Math.round(karakter);
+
+        document.write(`
+        <h1>Din karakter er: ${karakter}</h1>
+        `)
+
+
+    </script>
+
+
+</body>
+</html>

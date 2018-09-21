@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+</head>
+<body>
+
+
+
+    <p>Hvor er hoevedstaden i Mogolia?</p>
+    <input type="text" id="inpSvar" placeholder="Skriv inn svar">
+    <br>
+    <button id="btnSvar">Send inn</button>
+    <div id="divSvar"></div>
+
+
+    <script>
+
+        var inpSvar = document.getElementById("inpSvar"); // variable som referer til inpSvar elementet
+        var btnSvar = document.getElementById("btnSvar");
+        var divSvar = document.getElementById("divSvar");
+
+        btnSvar.onclick = function () {
+            if(inpSvar.value === "Ulan Bator" || inpSvar.value === "Ulanbatar"  ) { // option 7, betyr eller (2 stk) || "Ulanbatar"
+                divSvar.innerHTML = "Gratulerer, du er veldig flink!" // dette skjer dersom svaret stemmer med linjen over
+            }
+            else {
+                divSvar.innerHTML = "Dette var dessverre feil" // dersom svar ikke stemmer med linjen over inpSvar.value
+            }
+        }
+
+
+    </script>
+
+
+</body>
+</html>

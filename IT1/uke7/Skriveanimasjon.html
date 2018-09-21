@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skriveanimasjon</title>
+    <style>
+
+        body {
+            font-family: sans-serif;
+        }
+        input[type=text] {
+            font-family: sans-serif;
+        }
+
+        @keyframes animasjon {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-6px);
+            }
+        }
+
+        #infoTekst span {
+                display: inline-block;
+        }
+
+        .animer span {
+            animation: animasjon 0.6s infinite alternate;
+        }
+
+        .animer span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .animer span:nth-child(3) {
+            animation-delay: 0.4s;
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <input type="text" placeholder="Hva mener du?" id="inpMelding">
+    <p id="infoTekst">En eller annen skriver noe <span>.</span><span>.</span><span>.</span></p>
+
+    <script>
+        const inpMelding = document.getElementById("inpMelding");
+        const infotekst = document.getElementById("infoTekst");
+
+
+
+        let timer;
+
+        function skruPaa() {
+            infotekst.className = "animer";
+            timer = clearTimeout(timer);
+            timer = setTimeout(skruAv, 2400);
+        }
+        function skruAv(){
+            infotekst.className = "";
+        }
+
+        inpMelding.oninput = skruPaa;
+
+
+    </script>
+
+
+</body>
+</html>

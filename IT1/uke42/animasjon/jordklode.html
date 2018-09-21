@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jordklode</title>
+    <style>
+
+        body {
+            background-color: black;
+            margin: 0;
+            padding-left: 500px;
+        }
+
+
+        @keyframes catwalk {
+            to {
+                background-position: 0 -16018px;
+            }
+        }
+
+        @keyframes moveRight {
+            to {
+                transform: translateX(500px);
+            }
+        }
+
+        .pus {
+            background-image: url("DONE1-01.png");
+            width: 500px;
+            height: 450px; /* 1/12 av høyden til bildet */
+            animation: catwalk 3s steps(32) infinite;
+        }
+
+        .right {
+            width: 500px;
+            height: 450px;
+            animation: steps(128) 4s infinite alternate;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="right">
+    <div class="pus"></div>
+</div>
+
+
+</body>
+</html>

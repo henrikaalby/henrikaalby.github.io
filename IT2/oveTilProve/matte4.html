@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matte</title>
+</head>
+<body>
+
+
+    <script>
+
+        var hoyde = Number(prompt("Hva er din høyde i M?"));
+        var vekt = Number(prompt("Hva er din vekt i kg?"));
+
+        var kmi = vekt/(Math.pow(hoyde, 2));
+
+        document.write(`
+        <h1>Dersom din høyde er: ${hoyde}</h1>
+        <h1>Og vekten din er: ${vekt}</h1>
+        <br>
+        <h1>Er din KMI (kroppsmasseindeks): ${kmi}</h1>
+        `)
+
+
+    </script>
+
+</body>
+</html>

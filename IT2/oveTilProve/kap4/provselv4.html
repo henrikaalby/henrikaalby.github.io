@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv 4</title>
+</head>
+<body>
+
+
+    <script>
+
+        var tall1 = Number(prompt("Skriv inn ditt første tall"));
+        var velgRegn = prompt("Velg regneart (/   +   -  *  )");
+        var tall2 = Number(prompt("Skriv inn ditt andre tall"));
+
+        if(velgRegn === "/"){
+            document.write(tall1/tall2);
+        }
+        if(velgRegn === "+"){
+            document.write(tall1+tall2);
+        }
+        if(velgRegn === "-"){
+            document.write(tall1-tall2);
+        }
+        if(velgRegn === "*"){
+            document.write(tall1*tall2);
+        }
+
+    </script>
+
+
+</body>
+</html>

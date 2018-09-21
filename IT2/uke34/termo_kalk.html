@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Termoneter Kalkulator</title>
+
+    <style>
+
+
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            background-color: rgba(46,52,49,0.73);
+            padding: 50px;
+            font-size: 150%;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+    <h1>Termometer-Kalkulator</h1>
+
+
+    <script>
+
+        /* var fahrenheit = prompt ("Skriv temperatur i fahrenheit"); */ //  her blir det string
+        var fahrenheit = Number (prompt ("Skriv temperatur i fahrenheit")); // her blir det number
+        var celsius = (fahrenheit - 32) /1.8;
+        console.log(celsius);
+        document.write(`${fahrenheit} grader fahrenheit er ${celsius.toFixed(2)} grader celsius`);
+
+
+
+
+        // passord
+
+
+
+    </script>
+
+
+</body>
+</html>

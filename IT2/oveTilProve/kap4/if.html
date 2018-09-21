@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>If</title>
+</head>
+<body>
+
+
+    <img id="imgKron">
+
+
+    <script>
+
+        var imgKron = document.getElementById("imgKron");
+        var tilfeldigTall = Math.random();
+
+        if(tilfeldigTall < 0.5){
+            imgKron.src = "../Bilder/kron.jpg";
+        }
+        else {
+            imgKron.src = "../Bilder/mynt.jpg";
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

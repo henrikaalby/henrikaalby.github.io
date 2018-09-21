@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Grid</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+
+
+        }
+        header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black)
+        }
+        main {
+            background-color: peru;
+
+        }
+        body > footer {
+            background-color: lightslategrey;
+        }
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        body >header > nav > a {
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        body > footer {
+            display: grid;
+            grid-gap: 20px;
+            padding: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+
+
+        }
+        main h1 {
+            color: white;
+            font-size: 92px;
+        }
+
+        main h2 {
+            color: white;
+
+        }
+
+        main a {
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            background-color: #D60000;
+        }
+
+        body > footer > article > img {
+            width: 80px;
+        }
+
+
+        @media (max-width: 750px) {
+            body > header > nav {
+                grid-auto-flow: row;
+
+            }
+        }
+
+
+
+        .active {
+            background-color: #D60000;
+            color: white;
+        }
+
+        body > main {
+            display: grid;
+            grid-template-rows: 1fr 80px;
+            align-items: center; /* Vertikal midtstilling */
+            justify-items: center; /* Horisontal midtstilling */
+            text-align: center;
+            background-image: url("giphy.gif");
+            background-size: cover;
+            background-position: right top;
+
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="active">WEBSITE</a>
+            <a href="#">HOME</a>
+            <a href="#">AWAY</a>
+            <a href="#">MASTER</a>
+            <a href="#">STUDIES</a>
+            <a href="#">CONTACT</a>
+            <a href="#">ABOUT US</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>MODERN WEB DESIGN</h1>
+            <h2>Fresh & Responsive</h2>
+        </section>
+        <footer>
+            <a href="#">JOIN</a>
+        </footer>
+    </main>
+    <footer>
+        <article>
+            <img src="blyant.png">
+            <p>Skrivevertøyet vårt er ualminnelig bra</p>
+        </article>
+        <article>
+            <img src="klokke.png">
+            <p>Klokka vår er ualminnelig bra</p>
+        </article>
+        <article>
+            <img src="lapp.png">
+            <p>Lappen vår er ualminnelig bra</p>
+        </article>
+    </footer>
+
+</body>
+</html>

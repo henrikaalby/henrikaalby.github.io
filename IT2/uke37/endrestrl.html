@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Endre størrelse</title>
+
+    <style>
+
+        #minFirkant {
+            background-color: peachpuff;
+            width: 200px;
+            height: 200px;
+            transition: 3s;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <input type="text" id="inpStorrelse">
+
+    <div id="minFirkant"></div>
+
+
+    <script>
+
+        var inpStorrelse = document.getElementById("inpStorrelse");
+        var minFirkant = document.getElementById("minFirkant");
+
+        inpStorrelse.onkeyup = function(){
+            minFirkant.style.width = inpStorrelse.value + "px";
+        }
+
+    </script>
+
+
+</body>
+</html>

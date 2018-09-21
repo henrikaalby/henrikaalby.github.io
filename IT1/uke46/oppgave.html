@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave</title>
+    <style>
+        * {
+            margin:0;
+        }
+        main {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(12, 1fr);
+            max-width: 700px;
+            text-align: center;
+            margin: 20px auto;
+        }
+        main > article {
+            background-color: orange;
+            padding-bottom: 20px;
+            text-align: center;
+
+        }
+
+        h1 {
+            color: #4b463c
+        }
+
+        .col-1  { grid-column: span 1; }
+        .col-2  { grid-column: span 2; }
+        .col-3  { grid-column: span 3; }
+        .col-4  { grid-column: span 4; }
+        .col-5  { grid-column: span 5; }
+        .col-6  { grid-column: span 6; }
+        .col-7  { grid-column: span 7; }
+        .col-8  { grid-column: span 8; }
+        .col-9  { grid-column: span 9; }
+        .col-10  { grid-column: span 10; }
+        .col-11  { grid-column: span 11; }
+        .col-12  { grid-column: span 12; }
+
+        .row-1 { grid-row: span 1}
+        .row-2 { grid-row: span 2}
+        .row-3 { grid-row: span 3}
+        .row-4 { grid-row: span 4}
+        .row-5 { grid-row: span 5}
+        .row-6 { grid-row: span 6}
+        .row-7 { grid-row: span 7}
+        .row-8 { grid-row: span 8}
+        .row-9 { grid-row: span 9}
+        .row-10 { grid-row: span 10}
+        .row-11 { grid-row: span 11}
+        .row-12 { grid-row: span 12}
+
+        img {
+            width: 100%;
+
+        }
+    </style>
+</head>
+<body>
+
+<main>
+
+    <article class="col-12">
+        <img src="bilder/firenze.jpg">
+        <h1>Broene i Firenze</h1>
+    </article>
+    <article class="col-6 row-2">
+        <img src="bilder/pisa.jpeg">
+        <h1>Pisa</h1>
+    </article>
+    <article class="col-6">
+        <img src="bilder/roma.jpg">
+        <h1>Roma</h1>
+    </article>
+    <article class="col-6">
+        <img src="bilder/orvietto.jpg">
+        <h1>Orvietto</h1>
+    </article>
+
+</main>
+
+</body>
+</html>

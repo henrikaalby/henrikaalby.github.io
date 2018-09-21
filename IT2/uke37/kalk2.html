@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kalkulator</title>
+</head>
+<body>
+
+
+    <input type="number" id="inpTall1">
+    <input type="number" id="inpTall2">
+
+    <button id="skrivUt">Skriv ut!</button>
+
+    <span id="res"></span>
+
+
+    <script>
+
+        var tall1 = document.getElementById("inpTall1");
+        var tall2 = document.getElementById("inpTall2");
+        var skrivUt = document.getElementById("skrivUt");
+        var res = document.getElementById("res");
+
+
+        skrivUt.onclick = function() {
+            res.innerHTML = Number(tall1.value) + Number(tall2.value);
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

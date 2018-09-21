@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            font-family: "Chaparral Pro", sans-serif;
+        }
+
+        header > div > p {
+            margin-top: 40px;
+            font-size: 400%;
+            text-align: center;
+        }
+
+        header > div > nav > a {
+            font-size: 100%;
+            text-align: center;
+            color: red;
+            text-decoration: none;
+            text-transform: uppercase;
+
+        }
+
+        header > div > nav {
+            text-align: center;
+        }
+
+        nav > a:hover {
+            text-decoration: underline;
+            transition: 0s;
+        }
+
+        body {
+            font-family: "Chaparral Pro", sans-serif;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            padding-right: 6%;
+            padding-left: 6%;
+            padding-top: 2%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        main {
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type=text] {
+            text-decoration-color: black;
+            width: 650px;
+            border-color: grey;
+            text-align: center;
+            outline: none;
+            min-height: 30px;
+
+        }
+
+
+
+        textarea {
+            width: 650px;
+            min-height: 60px;
+        }
+
+
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            color: grey;
+            font-family: "Chaparral Pro", sans-serif;
+            margin-bottom: 15px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+
+
+
+    </div>
+    <div>
+        <p>Last opp egen erfaring</p>
+        <br>
+        <nav>
+            <a href="Sted.html">Tilbake til hovedsiden</a>
+        </nav>
+    </div>
+</header>
+<main>
+
+    <form id="skjema">
+
+        <br>
+        <div>
+            <p>Vennligst skriv hvilke sted/by du ønsker å anmelde</p>
+            <textarea class="sook" id="inpSted" autocomplete="off"  placeholder="Her skriver du inn hvilke sted/by du ønsker å anmelde"></textarea>
+        </div>
+        <br>
+        <div>
+            <p>Hvilke by ligger reisemålet i?</p>
+            <textarea class="sook" id="inpBy" autocomplete="off"  placeholder="Her skriver du hvilke by reisemålet ligger i"></textarea>
+        </div>
+        <br>
+        <div>
+            <p>Hvilke land ligger reisemålet i?</p>
+            <textarea class="sook" id="inpLand" autocomplete="off"  placeholder="Her skriver du hvilke land reisemålet ligger i"></textarea>
+        </div>
+        <br>
+        <div>
+            <p>Hvordan ville du beskrevet reisemålet?</p>
+            <textarea class="sook" maxlength="400" id="inpBeskrivelse" autocomplete="off"  placeholder="Her beskriver du reisemålet (maks 400 tegn)"></textarea>
+        </div>
+        <br>
+        <div>
+            <p>Vennligst last opp et bilde fra reisemålet</p>
+            <input type="file" id="inpBilde" required>
+        </div>
+
+        <br>
+
+        <div>
+            <button type="submit">Lagre reisemål</button>
+        </div>
+
+    </form>
+
+</main>
+
+<footer>
+    <p1> Sted.no © 2018</p1>
+</footer>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBMG0wQftiKGh_p3C2SWiGrcHKJPT0tqJM",
+        authDomain: "sted-a7db2.firebaseapp.com",
+        databaseURL: "https://sted-a7db2.firebaseio.com",
+        projectId: "sted-a7db2",
+        storageBucket: "sted-a7db2.appspot.com",
+        messagingSenderId: "925012934049"
+    };
+    firebase.initializeApp(config);
+</script>
+
+ <script>
+
+     const db = firebase.database();
+     const storage = firebase.storage();
+     const anmeldelser = db.ref("anmeldelser");
+
+     const inpBilde = document.getElementById("inpBilde");
+     const skjema = document.getElementById("skjema");
+
+     const inpSted = document.getElementById("inpSted");
+     const inpBy = document.getElementById("inpBy");
+     const inpLand = document.getElementById("inpLand");
+     const inpBeskrivelse = document.getElementById("inpBeskrivelse");
+
+
+
+
+     function lagreData(bildesnap) {
+         let url = bildesnap.downloadURL;
+         anmeldelser.push({
+             by: inpBy.value,
+             byStoreBokstaver: (inpBy.value).toUpperCase(),
+             sted: inpSted.value,
+             stedStoreBokstaver: (inpSted.value).toUpperCase(),
+             land: inpLand.value,
+             landStoreBokstaver: (inpLand.value).toUpperCase(),
+             beskrivelse: inpBeskrivelse.value,
+             bildeurl: url
+         });
+
+         skjema.reset();
+         alert("Nå er reisemålet registrert");
+         // Her kan du hopppe til en annen side
+         // Nå er registreringen av ett reisemål ferdig
+
+     }
+
+     function lagre(evt) {
+         evt.preventDefault();
+
+         const fil = inpBilde.files[0];
+
+         const filref = storage.ref("bilder/" + new Date());
+
+         filref.put(fil)
+             .then(lagreData);
+
+
+
+     }
+
+     skjema.onsubmit = lagre;
+
+
+ </script>
+
+</body>
+</html>

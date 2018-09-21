@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv 2</title>
+</head>
+<body>
+
+
+    <img id="bilde">
+
+    <script>
+
+        var bilde = document.getElementById("bilde");
+
+        var tall = Math.random()*3+1;
+
+        tall = Math.round(tall);
+
+        if(tall === 1){
+            bilde.src = "../Bilder/henrik.jpg";
+        }
+        if(tall === 2){
+            bilde.src = "../Bilder/gløer.png";
+        }
+        if(tall === 3){
+            bilde.src = "../Bilder/bilde1.jpg";
+        }
+
+
+    </script>
+
+
+</body>
+</html>

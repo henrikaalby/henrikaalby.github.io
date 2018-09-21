@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elektronikk</title>
+    <style>
+        body {
+            background-color: #eee;
+            font-family: sans-serif;
+        }
+        main {
+            max-width: 970px;
+            margin: auto;
+        }
+        section {
+            display: grid;
+            grid-gap: 30px; /* Mellomrom mellom hvert spørsmål */
+        }
+        p {
+            margin-top: 0;
+        }
+        #alleDiskusjoner > article {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 15px;
+            background-color: white;
+            padding: 10px;
+            border-bottom: 2px solid #cacaca;
+        }
+        #alleDiskusjoner img {
+            width: 95px;
+        }
+        .meta {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: blueviolet;
+            color: white;
+            padding: 8px;
+        }
+
+        article:hover {
+            opacity: 0.7;
+            transition: 0.2s;
+        }
+
+        * {
+            text-decoration: none;
+            color: black;
+        }
+
+        .hKat {
+            text-align: center;
+
+        }
+
+        .header {
+            display: grid;
+            grid-template-areas: 'tilbake kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat kat bil bil bil' ;
+        }
+
+        .tilbake { grid-area: tilbake;  }
+        .kat { grid-area: kat }
+
+        .tilbake {
+            background-color: #14679e;
+            text-align: center;
+        }
+
+        .tilbakeA {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <div class="header">
+
+            <div class="kat">
+                <h1 class="hKat">Uteliv</h1>
+            </div>
+
+            <div class="tilbake">
+                <a href="index.html">
+                    <h1 class="tilbakeA">&#8592; Tilbake</h1>
+                </a>
+            </div>
+
+        </div>
+
+    </header>
+
+<main>
+    <section id="alleDiskusjoner">
+
+    </section>
+</main>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBPfJuj74_ocobmQw4K9lkQ14Aix67gmJY",
+        authDomain: "diskusjon-9cd15.firebaseapp.com",
+        databaseURL: "https://diskusjon-9cd15.firebaseio.com",
+        projectId: "diskusjon-9cd15",
+        storageBucket: "diskusjon-9cd15.appspot.com",
+        messagingSenderId: "1068676568436"
+    };
+    firebase.initializeApp(config);
+</script>
+
+
+<script>
+
+    // HTML-elementer
+    const alleDiskusjoner = document.getElementById("alleDiskusjoner");
+
+    // Firebase-kontakt
+    const db = firebase.database();
+    const diskusjoner = db.ref("diskusjoner/Uteliv");
+
+    function visDiskusjon(snap) {
+        console.log("HALLO");
+        var key = snap.key;
+        var diskusjon = snap.val();
+
+        var artikkel = `
+                <article>
+                        <a href="test2.html?id=${key}&kat=Uteliv">
+                        <p>${diskusjon.spørsmål}</p>
+                        <p class="meta">${diskusjon.kategori}</p>
+                        <br>
+                        <p>${diskusjon.tekst}</p>
+                        <br>
+                        <p>${diskusjon.spmstiller}</p>
+                    </a>
+                </article>
+            `;
+
+        alleDiskusjoner.innerHTML += artikkel;
+    }
+
+    diskusjoner
+        .on("child_added", visDiskusjon);
+
+
+</script>
+
+
+</body>
+</html>

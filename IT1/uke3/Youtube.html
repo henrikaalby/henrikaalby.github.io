@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Youtube</title>
+
+    <style>
+        main {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        main > video {
+            width: 100%;
+        }
+
+        #knapper {
+            background-color: #eeeeee;
+            border: 1px solid #333;
+            padding: 10px;
+        }
+        #knapper > span {
+            background-color: rebeccapurple;
+            padding: 6px;
+            color: white;
+            font-family: sans-serif;
+            display: inline-block;
+            margin: 8px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #knapper > span:hover {
+            background-color: darkblue;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <header style="margin-bottom: 10px">
+        <input type="text" id="inpTittel" placeholder="Hva heter filmen?"
+        <input type="file" id="inpVideo">
+    </header>
+
+    <main>
+    <video src="" controls poster="../Innlevering/images/ekteskapsrett.svg" ></video>
+    <div id="knapper">
+        <span>Et hundeliv </span>
+        <span>Fint å bade</span>
+        <span>Hopp i havet</span>
+    </div>
+
+    </main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBRdNli3VCUntyKyx-g7_bflRtNmxRJzKs",
+            authDomain: "it1-fredag-c8bb8.firebaseapp.com",
+            databaseURL: "https://it1-fredag-c8bb8.firebaseio.com",
+            projectId: "it1-fredag-c8bb8",
+            storageBucket: "it1-fredag-c8bb8.appspot.com",
+            messagingSenderId: "870698439729"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script>
+        const db = firebase.database();
+        const videoer = db.ref("videoer");
+        const storage = firebase.storage();
+
+
+
+        const inpVideo = document.getElementById("inpVideo");
+        const knapper = document.getElementById("knapper");
+        const minvideo = document.getElementById("minvideo");
+        const inpTittel = document.getElementById("inpTittel");
+
+        function lagreData(info) {
+            videoer.push({
+                tittel: inpTittel.value,
+                url: info.downloadURL
+            });
+        }
+
+        function lastOppVideo() {
+            const video = inpVideo.files[0];
+            const lagringsplass = storage.ref("videoer/" + new Date());
+            lagrinsplass.put(video).then(lagreData);
+        }
+
+        function lagKnapp(snap) {
+            const video = snap.val();
+            knapper.innerHTML += `<span onclick="spillFilm"(`${video.url}`)>${video.tittel}</span>`
+        }
+
+        function spillFilm(url) {
+            minVideo.src = url;
+            minVideo.play();
+        }
+
+        inpVideo.onchange = lastOppVideo;
+        videoer.on("child_added", lagKnapp);
+    </script>
+
+</body>
+</html>

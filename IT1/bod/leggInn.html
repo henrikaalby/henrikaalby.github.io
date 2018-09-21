@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Legg inn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+
+    <style>
+
+        body {
+            padding: 15px;
+        }
+        .input {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<section class="input">
+
+    <h1>Skriv inn ditt spørsmål!</h1>
+
+    <form id="skjema">
+        <p>Skriv inn kassenavnet</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Kassenavn" id="inpNavn" required>
+
+        <p>Kategori</p>
+        <select id="velgKat" required>
+            <option value="">Velg kategori</option>
+            <option value="Hage">Hage</option>
+            <option value="Elektronikk">Elektronikk</option>
+            <option value="Friluftsliv">Friluftsliv</option>
+            <option value="Klær">Klær</option>
+            <option value="Sport">Sport</option>
+            <option value="Uteliv">Uteliv</option>
+        </select>
+
+
+
+        <p>Skriv inn innholdet</p>
+        <input type="text" autocomplete="off" autofocus placeholder="Ett ord" id="inpInnhold" required>
+
+
+        <button type="submit" class="button">Lagre kasse</button>
+
+    </form>
+
+
+</section>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAWtpcV-u6x_ShjK_GEbEeGqv22u509x9s",
+        authDomain: "bod-prosjekt.firebaseapp.com",
+        databaseURL: "https://bod-prosjekt.firebaseio.com",
+        projectId: "bod-prosjekt",
+        storageBucket: "bod-prosjekt.appspot.com",
+        messagingSenderId: "776516133798"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    const db = firebase.database();
+
+    const skjema = document.getElementById("skjema");
+    const  velgKat = document.getElementById("velgKat");
+    const inpNavn = document.getElementById("inpNavn");
+    const inpInnhold = document.getElementById("inpInnhold");
+
+
+    function lagreKasse(evt){
+        evt.preventDefault();
+        const forum = db.ref("bod/kasser");
+        forum.push({
+            navn: inpNavn.value,
+            kategori : velgKat.value,
+            innhold: inpInnhold.value
+        });
+
+        location.href = index.html;
+
+    }
+
+    skjema.onsubmit = lagreKasse;
+
+
+</script>
+
+</body>
+</html>

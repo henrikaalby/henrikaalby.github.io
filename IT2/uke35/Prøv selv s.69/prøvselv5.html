@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv 5</title>
+</head>
+<body>
+
+
+    <img id="bilde">
+
+
+    <script>
+
+        var imgBilde = document.getElementById("bilde"); // refererer til img taggen
+
+
+
+        var bildeArray = ["bilde1.jpg", "bilde2.jpg", "bilde3.jpg"]; // oppretter array med filnavenen  til bildene
+
+
+        var tilfeldigTall = Math.round()*2; // oppretter en variabel som er et tilfeldigtall
+
+        var tilfeldigAvrundt = Math.round(tilfeldigTall); // oppretter nevariabel som runder opp tilfeldig til nærmeste heltall
+
+        imgBilde.src = bildeArray[tilfeldigAvrundt];
+
+
+
+       //  imgBilde .src = bildeArray[Math.round(Math.random()*2)];
+
+        /* imgBilde.src = "bilde1.jpg";
+        imgBilde.src = "bilde2.jpg";
+        imgBilde.src = "bilde3.jpg"; */
+
+    </script>
+
+</body>
+</html>

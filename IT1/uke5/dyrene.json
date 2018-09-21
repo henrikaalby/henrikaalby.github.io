@@ -1,0 +1,256 @@
+{
+  "results" : [
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Klaus Knegg",
+      "type" : "Hest",
+      "bilde" : "klaus.jpg",
+      "telefon" : "+4792665040",
+      "beskrivelse" : "Klaus rømte fra stallen på torsdag."
+    },
+    {
+      "navn" : "Warren",
+      "type" : "Varan",
+      "bilde" : "warren.jpg",
+      "telefon" : "+4792664050",
+      "beskrivelse" : "Warren forsvant i dag tidlig:/"
+    },
+    {
+      "navn" : "Henrik",
+      "type" : "Kamel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    },
+    {
+      "navn" : "Tore",
+      "type" : "Esel",
+      "bilde" : "henrik.jpg",
+      "telefon" : "+4792664055",
+      "beskrivelse" : "Henrik ble borte i går kveld."
+    }
+  ]
+}

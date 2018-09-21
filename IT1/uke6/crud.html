@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUD</title>
+</head>
+<body>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBRdNli3VCUntyKyx-g7_bflRtNmxRJzKs",
+        authDomain: "it1-fredag-c8bb8.firebaseapp.com",
+        databaseURL: "https://it1-fredag-c8bb8.firebaseio.com",
+        projectId: "it1-fredag-c8bb8",
+        storageBucket: "it1-fredag-c8bb8.appspot.com",
+        messagingSenderId: "870698439729"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        const db = firebase.database();
+        const personer = db.ref("bilregister/personer");
+        const biler = db.ref("bilregister/biler");
+
+        // CREATE
+        // Personnummer blir nå primærnøkkel til Petter Solberg
+        const petter = personer.child("15022000112345");
+        petter.set({
+            fornavn: "Petter",
+            etternavn: "Solberg"
+        });
+
+
+        // UPDATE
+        // Skal endre Petter til Henning
+        petter.update ({
+            fornavn: "Henning"
+        });
+
+        // DELETE heter REMOVE i Firebase
+        petter.remove();
+
+        const martin = person.child("12023823456");
+        martin.set({
+            fornavn: "Martin",
+            Etternavn: "Schanche"
+
+        });
+
+
+        // Biler
+        const BMW  = biler.child("BR12345"");
+            BMW.set({
+                regnr: "BR12345",
+                model: "1-serie",
+                merke: "BMW"
+            });
+
+        // Setter registreringsnr som PK
+        const volvo = biler.child("zz13254");
+        volvo.set({
+            merke: "Volvo",
+            modell: "V40",
+            eier: "12023823456"
+        });
+        const honda = biler.child("FS12345");
+        honda.set({
+            merke: "honda",
+            modell: "jazz",
+            eier: "12023823456"
+        });
+
+
+
+    </script>
+
+</body>
+</html>

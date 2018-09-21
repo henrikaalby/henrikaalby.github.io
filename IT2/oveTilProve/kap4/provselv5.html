@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prøv selv 5</title>
+</head>
+<body>
+
+
+    <script>
+
+      var billett = prompt("Hva slags billett skal du ha? (Barn, voksen, pensjonist og ungdom)");
+
+      billett = billett.toLowerCase();
+
+      switch (billett) {
+          case "barn":
+          case "pensjonist":
+              document.write("Billetten koster 20 kroner");
+              break;
+          case "ungdom":
+              document.write("Billetten koster 25 kroner");
+              break;
+          case "voksen":
+              document.write("Billetten koster 35 kroner");
+
+      }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

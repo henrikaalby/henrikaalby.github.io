@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aalby Outfits - Velkommen</title>
+
+    <style>
+
+        .col-1  { grid-column: span 1; }
+        .col-2  { grid-column: span 2; }
+        .col-3  { grid-column: span 3; }
+        .col-4  { grid-column: span 4; }
+        .col-5  { grid-column: span 5; }
+        .col-6  { grid-column: span 6; }
+        .col-7  { grid-column: span 7; }
+        .col-8  { grid-column: span 8; }
+        .col-9  { grid-column: span 9; }
+        .col-10  { grid-column: span 10; }
+        .col-11  { grid-column: span 11; }
+        .col-12  { grid-column: span 12; }
+
+        .row-1 { grid-row: span 1}
+        .row-2 { grid-row: span 2}
+        .row-3 { grid-row: span 3}
+        .row-4 { grid-row: span 4}
+        .row-5 { grid-row: span 5}
+        .row-6 { grid-row: span 6}
+        .row-7 { grid-row: span 7}
+        .row-8 { grid-row: span 8}
+        .row-9 { grid-row: span 9}
+        .row-10 { grid-row: span 10}
+        .row-11 { grid-row: span 11}
+        .row-12 { grid-row: span 12}
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background-color: #eee;
+
+        }
+
+
+        a {
+            float: left;
+            margin: 10px; /*Luft utenfor boksen*/
+            padding: 15px; /*Luft inne i boksen*/
+            text-align: bottom; /*Midtstiller tekst*/
+            transition: 0.5s;
+        }
+
+
+
+        header > nav {
+            background-color: #342727;
+            font-weight: 800px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 32px;
+
+        }
+
+        nav a {
+            color: #BABABA;
+            text-decoration: none;
+            text-align: bottom;
+        }
+
+        .salg {
+            color: red;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .salg:hover {
+            color: orangered;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            grid-row-gap: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+
+
+        footer > nav {
+            background-color: #342727;
+            padding-top: 300px;
+        }
+
+        img#logo {
+            position: absolute;
+            height: 116px;
+            margin: 0;
+
+        }
+        .produkter {
+            text-align: center;
+            background-color: white;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+        #topslides {
+            display: grid;
+            grid-template-columns: 50px 1fr 50px;
+
+            overflow: hidden;
+        }
+        #topslides > div {
+
+            background-color: white;
+        }
+        #innerslide {
+            width: 200%;
+            display: grid;
+            grid-gap: 16px;
+            grid-template-columns: repeat(8, 1fr);
+            overflow: hidden;
+        }
+        #innerslide img {
+            width: 100%;
+        }
+
+        #topslides > div:first-child, #topslides > div:last-child {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <header>
+
+        <img src="logoutenkant.png" id="logo">
+        <nav>
+            <a href="#"">Herre</a>
+            <a href="#"">Dame</a>
+            <a href="#"">Barn</a>
+            <a class="salg" href="#"">Salg</a>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <div class="col-12 produkter">
+            <h1>Utvalg til vinter</h1>
+            <div id="topslides" class="col-12">
+                <div><</div>
+                <div id="innerslide">
+                        <div>
+                            <img src="img1.jpg">
+                        </div>
+                        <div>
+                            <img src="img2.jpg">
+                        </div>
+                        <div>
+                            <img src="img3.jpg">
+                        </div>
+                        <div>
+                            <img src="img4.jpg">
+                        </div>
+                    <div>
+                        <img src="img1.jpg">
+                    </div>
+                    <div>
+                        <img src="img2.jpg">
+                    </div>
+                    <div>
+                        <img src="img3.jpg">
+                    </div>
+                    <div>
+                        <img src="img4.jpg">
+                    </div>
+                </div>
+                <div>></div>
+
+            </div>
+        </div>
+        <div class="col-3 row-1">
+            <h1>Outlet</h1>
+        </div>
+        <div>
+            <h1>Populære varer</h1>
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <nav>
+
+        </nav>
+
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>
+
+

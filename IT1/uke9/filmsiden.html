@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmsiden</title>
+    <style>
+        body {
+            background-color: #eee;
+            font-family: sans-serif;
+        }
+        main {
+            max-width: 970px;
+            margin: auto;
+        }
+        section {
+            display: grid;
+            grid-gap: 30px; /* Mellomrom mellom hver film */
+        }
+        p {
+            margin-top: 0;
+        }
+        #alleFilmene > article {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 15px;
+            background-color: white;
+            padding: 10px;
+            border-bottom: 2px solid #cacaca;
+        }
+        #alleFilmene img {
+            width: 95px;
+        }
+        .meta {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: blueviolet;
+            color: white;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section id="alleFilmene">
+
+        </section>
+    </main>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBRdNli3VCUntyKyx-g7_bflRtNmxRJzKs",
+            authDomain: "it1-fredag-c8bb8.firebaseapp.com",
+            databaseURL: "https://it1-fredag-c8bb8.firebaseio.com",
+            projectId: "it1-fredag-c8bb8",
+            storageBucket: "it1-fredag-c8bb8.appspot.com",
+            messagingSenderId: "870698439729"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script>
+
+        // HTML-elementer
+        const alleFilmene = document.getElementById("alleFilmene");
+
+        // Firebase-kontakt
+        const db = firebase.database();
+        const filmer = db.ref("imdb/filmer");
+
+        function visFilm(filmSnap) {
+            console.log("HALLO");
+            var key = filmSnap.key;
+            var film = filmSnap.val();
+
+            var artikkel = `
+                <article>
+                <div class="meta">${film.Metascore}</div>
+                    <img src="${film.Poster}">
+                    <div>
+                        <p>${film.Title}</p>
+                        <p>${film.Actors}</p>
+                        <p>${film.Genre}</p>
+                        <p>${film.Plot}</p>
+                    </div>
+                </article>
+            `;
+
+            alleFilmene.innerHTML += artikkel;
+        }
+
+        filmer
+            .orderByChild("Metascore")
+            .on("child_added", visFilm);
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Netflix</title>
+    <style>
+
+
+
+
+        body {
+            background-color: black;
+            padding: 40px;
+        }
+
+        .filmer {
+            margin-top: 100px;
+            display: flex;
+        }
+        .filmer > article {
+            border: 2px solid white;
+            height: 200px;
+            flex: 1;
+            transition: 0.5s;
+            background-size: cover;
+            background-position: center center;
+            opacity: 0.5;
+
+        }
+        .filmer > article:hover {
+            flex: 2;
+            transform: scaleY(1.2);
+            opacity: 1;
+            z-index: 1000;
+        }
+        .filmer > article:first-child {
+            transform-origin: left;
+        }
+        .filmer > article:last-child {
+            transform-origin: right;
+        }
+        .filmer > article:nth-child(1) { background-image: url("bilder/Plakat1.jpg")}
+        .filmer > article:nth-child(2) { background-image: url("bilder/plakat2.jpg")}
+        .filmer > article:nth-child(3) { background-image: url("bilder/plakat3.jpg")}
+        .filmer > article:nth-child(4) { background-image: url("bilder/plakat4.jpg")}
+        .filmer > article:nth-child(5) { background-image: url("bilder/plakat5.jpg")}
+
+    </style>
+</head>
+<body>
+
+
+
+
+    <section class="filmer">
+        <article>
+        </article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+    </section>
+
+</body>
+</html>
