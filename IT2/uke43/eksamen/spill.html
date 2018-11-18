@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spill</title>
+
+</head>
+<body>
+
+    <div>
+
+    <input type="text" id="inpLeggTil" placeholder="Ting jeg må huske" required>
+
+    <button id="btn">Legg til</button>
+
+    </div>
+    <div id="divListe">
+
+        <ul id="ulListe">
+            <li onclick="fjernPunkt()">Husk å rette prøvene i IT 1</li>
+        </ul>
+
+    </div>
+
+
+    <script>
+
+        const inpLeggTil = document.getElementById("inpLeggTil");
+        const btnKnapp = document.getElementById("bnt");
+        const ulListe = document.getElementById("ulListe");
+
+        let punkter = [];
+
+        btnKnapp.onclick = function () {
+            if (inpLeggTil.value !== ""){
+            punkter.push(inpLeggTil.value);
+            inpLeggTil.value = "";
+            }
+            for (let i = 0; i < punkter.length; i++) {
+                console.log(punkter[i]);
+            }
+        }
+
+        function leggTilPunkt(tekst) {
+            ulListe.innerHTML += `<li>${tekst}</li>`;
+        }
+
+        function fjernPunkt () {
+        }
+
+        leggTilPunkt("Hallo");
+
+    </script>
+
+</body>
+</html>

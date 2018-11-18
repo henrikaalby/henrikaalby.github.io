@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 5</title>
+</head>
+<body>
+
+
+    <script>
+
+        function abc(a, b, c) {
+            var roten = b*b - 4*a*c;
+            if (roten < 0){
+                console.log("ingen løsning");
+                return null; // returnerer en null som er ingenting
+            }
+            else if (roten === 0) {
+                console.log("En løsning");
+                return -b / (2*a);
+            }
+            else {
+                console.log("To  løsninger");
+                var x1 = (-b + roten) / (2*a);
+                var x2 = (-b - roten ) / (2*a);
+                return [x1, x2];
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>

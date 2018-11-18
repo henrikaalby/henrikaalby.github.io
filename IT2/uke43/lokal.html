@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lokal</title>
+</head>
+<body>
+
+
+<input type="text" id="inpFelt">
+
+    <script>
+
+        const inpFelt = document.getElementById("inpFelt"); // denne er global
+
+        let hei = "Denne er global"; // denne er global
+
+       function eksempel() {
+           let hei = "hallo der"; // dette er en lokal variabel
+           console.log("hei");
+       }
+
+       eksempel(); // funksjonskall
+
+    </script>
+
+
+</body>
+</html>

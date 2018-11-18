@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>canvas</title>
+    <style>
+        canvas {
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+
+
+    <canvas id="canvas"></canvas>
+
+
+    <script>
+
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        // ctx.arc(50, 50, 25, 0, 2*Math.Pi());
+        ctx.arc(50, 50, 25, 0, Math.PI*2);
+        ctx.fill();
+
+        for (var i = 0; i < 10; i++) {
+            var x = 50 + 10*i;
+            var y = 50 + 10*i;
+            ctx.beginPath();
+            // ctx.arc(50, 50, 25, 0, 2*Math.Pi());
+            ctx.arc(x, y, 25, 0, Math.PI*2);
+            ctx.fill();
+        }
+
+
+    </script>
+
+</body>
+</html>
