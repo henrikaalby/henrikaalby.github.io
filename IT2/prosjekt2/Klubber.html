@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Club Guide</title>
+    <link rel="stylesheet" href="stilarkK.css">
+    <style>
+        h1 {
+             color: navy;
+             text-align: center;
+             font-family: Futura;
+         }
+
+        h2 {
+            color: #e47776;
+            text-align: center;
+            font-family: Futura;
+        }
+
+        header {
+            text-align: center;
+            min-height: 100px;
+            background-color: #fff2d8;
+            color: lightblue;
+            font-family: Futura;
+        }
+
+        *{
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav > a {
+            margin-left: 50px;
+            margin-right: 50px;
+            color: lightblue;
+        }
+
+        body {
+            background-image: url("stripes.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+<header>
+    <a href="Klubber.html"><h1 style="font-size:75px;">Club Guide</h1></a>
+
+
+    <nav>
+        <a href="Klubber.html" id="KLUBBER" class="active">KLUBBER</a>
+        <a href="artister.html" id="ARTISTER" class="active">ARTISTER</a>
+        <a href="Booking.html" id="BOOKING" class="active">BOOKING AV BORD</a>
+        <a href="Telling.html" id="TELLING" class="active">Ordspillet</a>
+    </nav>
+</header>
+
+<h2 style="font-size:80px;">KLUBBER</h2>
+
+
+<div class="slideshow-container">
+
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <a href="green%20valley.html"><img src="KLUBB%201.png" style="width:100%"></a>
+        <div class="text">Nummer 1: Green Valley</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <a href="ushuaïa.html"><img src="KLUBB%202.png" style="width:100%"></a>
+        <div class="text">Nummer 2: USHUAïA</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <a href="zouk.html"><img src="KLUBB%203.png" style="width:100%"></a>
+        <div class="text">Nummer 3: Zouk</div>
+    </div>
+
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+</script>
+
+
+
+</body>
+</html>

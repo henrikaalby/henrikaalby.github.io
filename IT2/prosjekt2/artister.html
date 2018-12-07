@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Club Guide</title>
+    <link rel="stylesheet" href="stilarkK.css">
+    <style>
+        h1 {
+            color: navy;
+            text-align: center;
+            font-family: Futura;
+
+        }
+
+        h2 {
+            color: #e47776;
+            text-align: center;
+            font-family: Futura;
+
+        }
+
+
+
+        header {
+            text-align: center;
+            min-height: 100px;
+            background-color: #fff2d8;
+            color: lightblue;
+            font-family: Futura;
+        }
+
+        *{
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav > a {
+            margin-left: 50px;
+            margin-right: 50px;
+            color: lightblue;
+        }
+
+        body {
+            background-image: url("stripes.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        #alleFilmene img {
+            width: 95px;
+        }
+        main {
+            max-width: 1000px;
+            margin: auto;
+        }
+        section {
+            display: grid;
+            grid-gap: 20px; /* Mellomrom mellom hver artist */
+        }
+        p {
+            margin-top: 0;
+            font-family: sans-serif;
+        }
+        #alleFilmene > article {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 15px;
+            background-color: white;
+            padding: 10px;
+            border-bottom: 2px solid #cacaca;
+        }
+
+        .artistNavn {
+            text-align: left;
+        }
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 1rem 0;
+            font-family: inherit;
+            padding: 0.85em 1em;
+            -webkit-appearance: none;
+            border: 1px solid transparent;
+            border-radius: 0;
+            -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+            transition: background-color 0.25s ease-out, color 0.25s ease-out;
+            font-size: 0.75rem;
+            line-height: 1;
+            text-align: center;
+            cursor: pointer;
+            background-color: #1779ba;
+            color: #fefefe;
+        }
+
+
+        .button:hover {
+            background-color: #14679e;
+            color: #fefefe;
+        }
+        .artistBilde {
+            border-radius: 50%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <a href="Klubber.html"><h1 style="font-size:75px;">Club Guide</h1></a>
+    <nav>
+        <a href="Klubber.html" id="KLUBBER" class="active">KLUBBER</a>
+        <a href="artister.html" id="ARTISTER" class="active">ARTISTER</a>
+        <a href="Booking.html" id="BOOKING" class="active">BOOKING AV BORD</a>
+        <a href="Telling.html" id="TELLING" class="active">Ordspillet</a>
+    </nav>
+</header>
+
+<h2 style="font-size:80px;">ARTISTER</h2>
+
+<audio id="avicii">
+    <source src="avicii.mp3" type="audio/mpeg">
+</audio>
+
+
+<main>
+    <section id="alleFilmene">
+
+        <article>
+            <img src="avicii.png" class="artistBilde">
+            <div>
+                <h1 class="artistNavn">Avicii</h1>
+                <p>Tim Bergling, bedre kjent som Avicii og Tim Berg, (født 8. september 1989 i Stockholm, død 20. april 2018 i Muskat i Oman) var en svensk disc jockey, remixer og plateprodusent. Hans debutalbum Seek Bromance nådde topp 20-listene i mange land, inkludert Frankrike, Belgia, Storbritannia og Sverige.</p>
+                <button class="button" onclick="playAudio()" type="button">Hør på artisten!</button>
+            </div>
+        </article>
+
+        <article>
+            <img src="avicii.png" class="artistBilde">
+            <div>
+                <h1 class="artistNavn">Avicii</h1>
+                <p>${film.Title}</p>
+                <button class="button" onclick="playAudio()" type="button">Hør på artisten!</button>
+            </div>
+        </article>
+
+        <article>
+            <img src="andrea.png" class="artistBilde">
+            <div>
+                <h1 class="artistNavn">Andrea Boccelli</h1>
+                <p>${film.Title}</p>
+                <button class="button" onclick="playAudio()" type="button">Hør på artisten!</button>
+            </div>
+        </article>
+
+        <article>
+            <img src="avicii.png" class="artistBilde">
+            <div>
+                <h1 class="artistNavn">Avicii</h1>
+                <p>${film.Title}</p>
+                <button class="button" onclick="playAudio()" type="button">Hør på artisten!</button>
+            </div>
+        </article>
+
+        <article>
+            <img src="avicii.png">
+            <div>
+                <h1 class="artistNavn">Avicii</h1>
+                <p>${film.Title}</p>
+                <button class="button" onclick="playAudio()" type="button">Hør på artisten!</button>
+            </div>
+        </article>
+
+
+
+    </section>
+</main>
+
+<script>
+    var x = document.getElementById("avicii");
+
+    function playAudio() {
+        x.play();
+    }
+
+</script>
+
+
+
+</body>
+</html>
