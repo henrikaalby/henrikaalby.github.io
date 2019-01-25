@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 1</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .inputFelt {
+            font-size: 130%;
+
+        }
+        #hendvendelser {
+            padding: 10px;
+            width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .navn, .problem {
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        .navn {
+            font-weight: bold;
+        }
+        #btn {
+            background-color: #2e6da4;
+            color: #eeeeee;
+            font-size: 90%;
+        }
+        #btn:focus {
+            outline: none;
+        }
+        .bruker {
+            background-color: #eeeeee;
+            margin-bottom: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <h1>Problemer?</h1>
+
+
+
+    <div class="inputFelt">
+    <p>Hva heter du?</p>
+    <input type="text" id="inpNavn" placeholder="Skriv inn navn">
+
+
+
+
+
+    <p>Hva er problemet ditt</p>
+    <input type="text" id="inpProb" placeholder="Skriv inn problem"> <br> <br>
+        <button id="btn" onclick="myFunction()">Send inn</button>
+        <br>
+        <br>
+    </div>
+
+    <div id="hendvendelser"></div>
+
+
+    <script>
+
+        const inpNavn = document.getElementById("inpNavn");
+        const inpProb = document.getElementById("inpProb");
+        const btn = document.getElementById("btn");
+        const hendvendelser = document.getElementById("hendvendelser");
+        const bruker = document.getElementById("bruker");
+
+
+        function myFunction() {
+            if (inpNavn.value !== "") {
+            hendvendelser.innerHTML += `<div class="bruker">
+                    <div class="navn">${inpNavn.value}</div>
+                    <div class="problem">${inpProb.value}</div>
+                </div>`;
+            inpNavn.value = "";
+            inpProb.value = "";
+            }
+            else {
+                alert("Skriv inn noe!")
+            }
+        }
+
+
+
+    </script>
+
+</body>
+</html>
