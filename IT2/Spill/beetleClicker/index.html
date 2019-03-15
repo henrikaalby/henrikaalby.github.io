@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beetle Clicker</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'PT Sans', sans-serif;
+            margin: 0;
+        }
+        #beetle-img {
+            width: 300px;
+        }
+        #beetle-img:active {
+            width: 20%;
+        }
+        header {
+            text-align: center;
+            width: 100%;
+            background-color: #3266BC;
+            height: 80px;
+        }
+        #logo {
+            height: 80px;
+        }
+        header > h1 {
+            color: white;
+        }
+        main {
+            text-align: center;
+        }
+        .oppgraderinger-fane {
+            background-color: #eeeeee;
+            margin-left: 200px;
+            margin-right: 200px;
+            display: grid;
+            grid-template-areas:
+                    'header header header header header header'
+                    'main main main right right right';
+            grid-gap: 10px;
+            background-color: white;
+            padding: 10px;
+        }
+        .overskriftOppgraderinger {
+            grid-area: header;
+        }
+        .klikkOppgraderinger {
+            grid-area: right;
+        }
+        .motorOppgradering {
+            grid-area: main;
+        }
+        .oppgraderinger-fane > div {
+            background-color: #eeeeee;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 20px;
+        }
+        .brukerinp {
+            padding-top: 50px;
+            padding-bottom: 10px;
+        }
+        .bold {
+            padding-top: 10px;
+            font-weight: bold;
+        }
+        .bil {
+            height: 150px;
+        }
+        .overskriftOppgraderinger {
+            grid-area: header;
+        }
+        button {
+            background-color: #3266BC;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+
+        <h1 class="overskrift">Beetle Clicker</h1>
+        <img id="logo" src="bilder/220px-Volkswagen_Logo_till_1995.svg.png" alt="Logo">
+
+    </header>
+
+
+
+    <main>
+
+        <div class="brukerinp">
+            <div class="bil">
+        <img src="bilder/beetle.png" alt="Beetle" id="beetle-img">
+            </div>
+            <p id="km">Kilometer kjørt: 0 km</p>
+            <p id="kmt">Kilometer i timen (km/t): 0</p>
+            <p id="verdiVis">Km per klikk: 1</p>
+        </div>
+
+
+        <div class="oppgraderinger-fane">
+
+            <div class="overskriftOppgraderinger">
+            <h2>Oppgraderinger!</h2>
+            </div>
+
+            <div class="motorOppgradering">
+                <p class="bold">Oppgrader motor:</p>
+                <br>
+                <p>+1 km/t <b>50 km</b></p>
+                <button id="hk30">Oppgrader</button>
+                <br>
+                <br>
+                <p>+2 km/t <b>100 km</b></p>
+                <button id="hk50">Oppgrader</button>
+
+            </div>
+
+            <div class="klikkOppgraderinger">
+                <p class="bold">Oppgrader klikking:</p>
+                <br>
+                <p>2x klikk <b>50 km</b></p>
+                <button id="x2">Oppgrader</button>
+                <br>
+                <br>
+                <p>5x klikk <b>100 km</b></p>
+                <button id="x5">Oppgrader</button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+
+
+    <script>
+
+        // Ref til HMTL-elementer
+        const beetle = document.querySelector("#beetle-img");
+        const km = document.querySelector("#km");
+        const trettiOppgradering = document.querySelector("#hk30");
+        const femtiOppgradering = document.querySelector("#hk50");
+        const oppgradering130 = 50;
+        const oppgradering150 = 2;
+        const kmttag = document.querySelector("#kmt");
+        const x2 = document.querySelector("#x2");
+        const x5 = document.querySelector("#x5");
+        const x2opp = 50;
+        const x5opp = 100;
+        const verdiVis = document.querySelector("#verdiVis");
+
+        // Globale variabler
+        let kjorteKm = 0; // Km som øker ved trykk og oppgraderinger (hvert sekund)
+        let kmt = 0; // Hvor mange km som skal komme i sekundet, jf. gameLoop
+        let frames = 0; // For å få 1 i sekundet
+        let verdi = 1;
+
+        // Setup
+        settePunktum(); // Setter punktum ved verdier over 999
+        gameLoop();
+
+
+        // Hendelseslyttere
+        beetle.onclick = merPoeng;
+        trettiOppgradering.onclick = oppgradering1;
+        femtiOppgradering.onclick = oppgradering2;
+        x2.onclick = okverdi2;
+        x5.onclick = okverdi5;
+
+
+
+
+        // Funksjonsdefinisjoner
+        // Sjekke om bruker har nok km til oppgradering, trekke km fra hvis, og innføre oppgradering
+        function oppgradering1() {
+            if (kjorteKm >= oppgradering130) {
+                kjorteKm -= oppgradering130;
+                kmt++;
+            }
+            else {
+                alert("Du har ikke nok km!")
+            }
+        }
+        function oppgradering2() {
+            if (kjorteKm >= oppgradering150) {
+                kjorteKm -= oppgradering150;
+                kmt += 2;
+            }
+            else {
+                alert("Du har ikke nok km!")
+            }
+        }
+        function gameLoop() {
+            km.innerHTML = `Kjørte kilometer: ${kjorteKm} km`;
+            frames++;
+            if (frames % 60 === 0) {
+                plussKmt();
+            }
+            requestAnimationFrame(gameLoop);
+
+        }
+        function plussKmt() {
+            kjorteKm += kmt;
+            kmttag.innerHTML = `Kilometer i timen (km/t): ${kmt}`;
+        }
+        // Sette punktum ved verdi over 999, for mer oversikt
+        function settePunktum() {
+            if (kjorteKm.value > 999){
+
+            }
+        }
+        function okverdi2() {
+            if (kjorteKm >= x2opp){
+                kjorteKm -= x2opp;
+                verdi *= 2;
+                verdiVis.innerHTML = `Km per klikk: ${verdi}`;
+            }
+            else {
+                alert("Du har ikke nok km")
+            }
+        }
+        function okverdi5() {
+            if (kjorteKm >= x5opp){
+                kjorteKm -= x5opp;
+                verdi *= 5;
+                verdiVis.innerHTML = `Km per klikk: ${verdi}`;
+            }
+            else {
+                alert("Du har ikke nok km")
+            }
+        }
+        function merPoeng() {
+            kjorteKm += verdi;
+            km.innerHTML = `Kjørte kilometer: ${kjorteKm} km`;
+        }
+
+
+    </script>
+
+</body>
+</html>
