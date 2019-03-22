@@ -83,6 +83,9 @@
             display: inline-block;
             font-size: 16px;
         }
+        #kjorte {
+            font-size: 110%;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +96,9 @@
         <h1 class="overskrift">Beetle Clicker</h1>
         <img id="logo" src="bilder/220px-Volkswagen_Logo_till_1995.svg.png" alt="Logo">
 
+
     </header>
+
 
 
 
@@ -105,7 +110,7 @@
             </div>
             <p id="km">Kilometer kjørt: 0 km</p>
             <p id="kmt">Kilometer i timen (km/t): 0</p>
-            <p id="verdiVis">Km per klikk: 1</p>
+            <p id="verdiVis">Kilometer per klikk: 1</p>
         </div>
 
 
@@ -130,11 +135,11 @@
             <div class="klikkOppgraderinger">
                 <p class="bold">Oppgrader klikking:</p>
                 <br>
-                <p>2x klikk <b>50 km</b></p>
+                <p>+2 klikk <b>50 km</b></p>
                 <button id="x2">Oppgrader</button>
                 <br>
                 <br>
-                <p>5x klikk <b>100 km</b></p>
+                <p>+5 klikk <b>100 km</b></p>
                 <button id="x5">Oppgrader</button>
 
 
@@ -150,13 +155,14 @@
 
     <script>
 
+
         // Ref til HMTL-elementer
         const beetle = document.querySelector("#beetle-img");
         const km = document.querySelector("#km");
         const trettiOppgradering = document.querySelector("#hk30");
         const femtiOppgradering = document.querySelector("#hk50");
         const oppgradering130 = 50;
-        const oppgradering150 = 2;
+        const oppgradering150 = 100;
         const kmttag = document.querySelector("#kmt");
         const x2 = document.querySelector("#x2");
         const x5 = document.querySelector("#x5");
@@ -206,44 +212,44 @@
             }
         }
         function gameLoop() {
-            km.innerHTML = `Kjørte kilometer: ${kjorteKm} km`;
+            km.innerHTML = `Kjørte kilometer: <b id="kjorte">${kjorteKm.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.')} km</b>`;
             frames++;
-            if (frames % 60 === 0) {
-                plussKmt();
-            }
+            plussKmt();
             requestAnimationFrame(gameLoop);
 
         }
         function plussKmt() {
-            kjorteKm += kmt;
-            kmttag.innerHTML = `Kilometer i timen (km/t): ${kmt}`;
+            kjorteKm += kmt/60;
+            kmttag.innerHTML = `Kilometer i timen (km/t): ${kmt.toFixed(0)}`;
         }
         // Sette punktum ved verdi over 999, for mer oversikt
         function settePunktum() {
             if (kjorteKm.value > 999){
-
             }
         }
+        // Kjøpe oppgradering + 2 per klikk
         function okverdi2() {
             if (kjorteKm >= x2opp){
                 kjorteKm -= x2opp;
-                verdi *= 2;
-                verdiVis.innerHTML = `Km per klikk: ${verdi}`;
+                verdi += 2;
+                verdiVis.innerHTML = `Kilometer per klikk: ${verdi.toFixed(0)}`;
             }
             else {
                 alert("Du har ikke nok km")
             }
         }
+        // Kjøpe oppgradering + 5 mer per klikk
         function okverdi5() {
             if (kjorteKm >= x5opp){
                 kjorteKm -= x5opp;
-                verdi *= 5;
-                verdiVis.innerHTML = `Km per klikk: ${verdi}`;
+                verdi += 5;
+                verdiVis.innerHTML = `Kilometer per klikk: ${verdi}`;
             }
             else {
                 alert("Du har ikke nok km")
             }
         }
+        // Funksjon som kommer dersom kan klikker, under onclick jf. beetle.onclick
         function merPoeng() {
             kjorteKm += verdi;
             km.innerHTML = `Kjørte kilometer: ${kjorteKm} km`;
