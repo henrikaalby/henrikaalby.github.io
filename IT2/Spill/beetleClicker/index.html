@@ -170,11 +170,12 @@
         const x5opp = 100;
         const verdiVis = document.querySelector("#verdiVis");
 
+
         // Globale variabler
         let kjorteKm = 0; // Km som øker ved trykk og oppgraderinger (hvert sekund)
         let kmt = 0; // Hvor mange km som skal komme i sekundet, jf. gameLoop
         let frames = 0; // For å få 1 i sekundet
-        let verdi = 1;
+        let verdi = 1; // Verdien for hva km øker med, økes ved oppgraderinger
 
         // Setup
         settePunktum(); // Setter punktum ved verdier over 999
@@ -190,7 +191,6 @@
 
 
 
-
         // Funksjonsdefinisjoner
         // Sjekke om bruker har nok km til oppgradering, trekke km fra hvis, og innføre oppgradering
         function oppgradering1() {
@@ -202,6 +202,7 @@
                 alert("Du har ikke nok km!")
             }
         }
+        // Sjekke om bruker har nok km til oppgradering, trekke km fra hvis, og innføre oppgradering
         function oppgradering2() {
             if (kjorteKm >= oppgradering150) {
                 kjorteKm -= oppgradering150;
@@ -212,22 +213,19 @@
             }
         }
         function gameLoop() {
+          // Sette punktum ved verdi over 999, for mer oversikt
             km.innerHTML = `Kjørte kilometer: <b id="kjorte">${kjorteKm.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.')} km</b>`;
             frames++;
             plussKmt();
             requestAnimationFrame(gameLoop);
 
         }
+        // Legger til hvor hvor mange kmt man har i sekundet på "kjorteKm" og oppdaterer kmttags innerHTML til å vise hvor mange kilometer i timen man kjører
         function plussKmt() {
             kjorteKm += kmt/60;
             kmttag.innerHTML = `Kilometer i timen (km/t): ${kmt.toFixed(0)}`;
         }
-        // Sette punktum ved verdi over 999, for mer oversikt
-        function settePunktum() {
-            if (kjorteKm.value > 999){
-            }
-        }
-        // Kjøpe oppgradering + 2 per klikk
+        // Kjøpe oppgradering, + 2 per klikk
         function okverdi2() {
             if (kjorteKm >= x2opp){
                 kjorteKm -= x2opp;
@@ -238,7 +236,7 @@
                 alert("Du har ikke nok km")
             }
         }
-        // Kjøpe oppgradering + 5 mer per klikk
+        // Kjøpe oppgradering, + 5 mer per klikk
         function okverdi5() {
             if (kjorteKm >= x5opp){
                 kjorteKm -= x5opp;
@@ -258,5 +256,66 @@
 
     </script>
 
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="main.js" type="text/javascript"></script>
 </body>
 </html>
