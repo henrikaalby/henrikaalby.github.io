@@ -176,9 +176,9 @@
         let kmt = 0; // Hvor mange km som skal komme i sekundet, jf. gameLoop
         let frames = 0; // For å få 1 i sekundet
         let verdi = 1; // Verdien for hva km øker med, økes ved oppgraderinger
+        let brukerWebApp = navigator.appName; // Litt for gøy, men lager en variabel for hvilken browser som blir brukt
 
         // Setup
-        settePunktum(); // Setter punktum ved verdier over 999
         gameLoop();
 
 
@@ -214,13 +214,15 @@
         }
         function gameLoop() {
           // Sette punktum ved verdi over 999, for mer oversikt
-            km.innerHTML = `Kjørte kilometer: <b id="kjorte">${kjorteKm.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.')} km</b>`;
+            km.innerHTML = `Kjørte kilometer:
+            <b id="kjorte">${kjorteKm.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,'.')} km</b>`;
             frames++;
             plussKmt();
             requestAnimationFrame(gameLoop);
 
         }
-        // Legger til hvor hvor mange kmt man har i sekundet på "kjorteKm" og oppdaterer kmttags innerHTML til å vise hvor mange kilometer i timen man kjører
+        /* Legger til hvor hvor mange kmt man har i sekundet på "kjorteKm" og oppdaterer
+        kmttags innerHTML til å vise hvor mange kilometer i timen man kjører */
         function plussKmt() {
             kjorteKm += kmt/60;
             kmttag.innerHTML = `Kilometer i timen (km/t): ${kmt.toFixed(0)}`;
@@ -252,70 +254,7 @@
             kjorteKm += verdi;
             km.innerHTML = `Kjørte kilometer: ${kjorteKm} km`;
         }
-
-
     </script>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="main.js" type="text/javascript"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="main.js" type="text/javascript"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="main.js" type="text/javascript"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="main.js" type="text/javascript"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="main.js" type="text/javascript"></script>
 </body>
 </html>
